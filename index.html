@@ -843,6 +843,14 @@ h1,h2,.phead h2,.intro h1{color:var(--ink);letter-spacing:-.01em;text-wrap:balan
   .sched{display:none}
   .kpis .kpi:nth-child(3){border:0;padding:16px 18px}
 }
+/* значки таб-бара */
+.tabbar i{display:none}
+.tabbar .ti{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
+.tabbar .ti .f{fill:none;transition:fill 150ms var(--ease)}
+.tabbar button.on .ti .f{fill:currentColor;fill-opacity:.14}
+.tabbar button.on .ti{stroke-width:1.9}
+.tabbar button{gap:3px;min-height:48px}
+.tabbar .count{top:0;left:calc(50% + 13px)}
 </style>
 </head>
 <body>
@@ -1052,6 +1060,18 @@ const myUpcoming=()=>S.bookings.filter(b=>b.client==="me"&&b.status==="upcoming"
 
 /* ---------- рендер ---------- */
 let scrollBook=false;
+
+/* значки нижнего меню: контурные 24×24 в стиле Phosphor (рекомендация UI/UX Pro Max), цвет от текста; у активной вкладки — заливка */
+const TAB_ICONS={
+  search:'<circle class="f" cx="11" cy="11" r="6.5"/><path d="M15.8 15.8L20 20"/>',
+  bookings:'<rect class="f" x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 14.5l2 2 4-4"/>',
+  chats:'<path class="f" d="M12 4c4.7 0 8.5 3.2 8.5 7.2s-3.8 7.2-8.5 7.2c-1 0-2-.2-2.9-.5L5 19.5l1.1-3.4C4.6 14.8 3.5 13.1 3.5 11.2 3.5 7.2 7.3 4 12 4z"/><path d="M8.5 11.2h.01M12 11.2h.01M15.5 11.2h.01" stroke-width="2.2"/>',
+  "m-bookings":'<rect class="f" x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 14.5l2 2 4-4"/>',
+  "m-schedule":'<circle class="f" cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
+  "m-profile":'<circle class="f" cx="12" cy="8.5" r="4"/><path class="f" d="M4.5 20c1.2-3.6 4-5.5 7.5-5.5s6.3 1.9 7.5 5.5"/>',
+  "m-chats":'<path class="f" d="M12 4c4.7 0 8.5 3.2 8.5 7.2s-3.8 7.2-8.5 7.2c-1 0-2-.2-2.9-.5L5 19.5l1.1-3.4C4.6 14.8 3.5 13.1 3.5 11.2 3.5 7.2 7.3 4 12 4z"/><path d="M8.5 11.2h.01M12 11.2h.01M15.5 11.2h.01" stroke-width="2.2"/>',
+  "m-promo":'<path class="f" d="M12 3.5l2.5 5.2 5.7.8-4.1 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/>'};
+function tabIcon(k){return `<svg class="ti" viewBox="0 0 24 24" aria-hidden="true">${TAB_ICONS[k]||""}</svg>`}
 function render(){
   document.getElementById("role-client").classList.toggle("on",S.role==="client");
   document.getElementById("role-master").classList.toggle("on",S.role==="master");
@@ -1070,7 +1090,7 @@ function render(){
     :[["mtab","bookings","Записи",""],["mtab","schedule","Окна","c"],["mtab","profile","Профиль","c"],["mtab","chats","Чаты","b"],["mtab","promo","Тариф",""]];
   const nUp=myUpcoming().length;
   tb.innerHTML=tabs.map(([a,k,l,ic])=>{const on=(a==="tab"?S.tab:S.mtab)===k;
-    return `<button class="${on?"on":""}" data-act="${a}" data-v="${k}" ${on?'aria-current="page"':""}><i class="${ic}"></i>${l}${a==="tab"&&k==="bookings"&&nUp?`<span class="count">${nUp}</span>`:""}</button>`}).join("");
+    return `<button class="${on?"on":""}" data-act="${a}" data-v="${k}" ${on?'aria-current="page"':""}>${tabIcon(a==="tab"?k:"m-"+k)}${l}${a==="tab"&&k==="bookings"&&nUp?`<span class="count">${nUp}</span>`:""}</button>`}).join("");
   document.getElementById("overlay").innerHTML=S.open&&S.role==="client"?viewProfile():"";
   document.body.style.overflow=S.open&&S.role==="client"?"hidden":"";
   const ms=document.querySelector(".msgs");if(ms)ms.scrollTop=ms.scrollHeight;
