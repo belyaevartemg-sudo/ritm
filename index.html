@@ -881,6 +881,16 @@ h1,h2,.phead h2,.intro h1{color:var(--ink);letter-spacing:-.01em;text-wrap:balan
   .panel.chat{border:0}
   .compose{box-shadow:0 -1px 0 var(--hair)}
 }
+/* 19:39 Артём: блок «как это работает» криво на компьютере. Заголовок со знаком в одну линию с текстом, номера и строки по одной сетке */
+.howcol{gap:6px;align-self:center;justify-items:stretch}
+.howhead{display:flex;align-items:center;gap:12px;padding-bottom:10px}
+.howhead .mark{width:40px;height:40px;padding:8px;border-radius:50%;background:var(--a50);color:var(--accent);stroke:var(--accent);stroke-width:1.8;flex:none}
+.howhead b{font-family:var(--f-display);font-weight:400;font-size:1.25rem;line-height:1.2;color:var(--ink)}
+.how li{grid-template-columns:52px 1fr;padding:12px 0;align-items:baseline}
+.how li::before{padding-top:0;justify-self:start;padding-left:12px}
+/* 19:40 Артём: напоминание опустить ниже — заголовок над обеими колонками, правая колонка начинается вровень с первой карточкой */
+.pageh{margin-bottom:12px}
+@media (min-width:901px){.bkcols > aside{padding-top:var(--sect-h,51px)}}
 </style>
 </head>
 <body>
@@ -1145,7 +1155,7 @@ function viewSearch(){
     <p class="sub">Красота начинается с совпадения</p>
     <p class="mission">Мы соединяем клиентов и мастеров, которые звучат в унисон. У каждого своя нота, и мы помогаем найти созвучную.</p>
     <p class="lead">Мы не ранжируем мастеров по звёздам. У каждого мастера есть отметки о том, как он работает: без разговоров, можно с ребёнком, приеду к вам. Работы, отзывы и место визита видны до записи.</p></div>
-    <div class="howcol"><svg class="reso" viewBox="0 0 120 56" aria-hidden="true"><path class="arc" d="M38 10C30 20 30 36 38 46M30 4C18 18 18 38 30 52M82 10C90 20 90 36 82 46M90 4C102 18 102 38 90 52"/><g transform="translate(46 4) scale(2)"><path d="M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5"/><path d="M12 17.6V22"/></g></svg>
+    <div class="howcol"><div class="howhead"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5"/><path d="M12 17.6V22"/></svg><b>Как это работает</b></div>
     <ol class="how">
       <li>Отметьте, что для вас важно: без разговоров, парковка, можно с ребёнком</li>
       <li>Смотрите работы и отзывы после настоящих визитов</li>
@@ -1237,8 +1247,7 @@ function viewBookings(){
       :`${!b.reviewed?`<button class="btn sm primary" data-act="review" data-v="${b.id}">Оставить отзыв</button>`:""}<button class="btn sm" data-act="open" data-v="${m.id}">Записаться снова</button>`}</div></div>
     ${S.reviewFor===b.id?reviewForm(b):""}`};
   const rem=up[0];
-  return `<div class="cols"><div class="stack">
-    <h1>Мои записи</h1>
+  return `<h1 class="pageh">Мои записи</h1><div class="cols bkcols"><div class="stack">
     <p class="sect">Предстоящие</p>${up.length?up.map(row).join(""):`<div class="panel empty">Предстоящих записей нет. <button class="btn ghost" data-act="tab" data-v="search">Найти мастера</button></div>`}
     <p class="sect">Прошедшие визиты</p>${past.map(row).join("")||`<div class="muted small">Пока пусто</div>`}
   </div>
