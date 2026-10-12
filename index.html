@@ -592,6 +592,8 @@ h3,.dbody section > h3{font-family:var(--f-body);font-weight:600}
   .wordmark{font-size:1.05rem;letter-spacing:.12em}
   .card{padding:18px}
 }
+.mission{margin:14px 0 0;max-width:46ch;font-size:1.02rem;line-height:1.55;color:var(--ink);border-left:2px solid var(--hair);padding-left:14px}
+@media (max-width:640px){.mission{font-size:.95rem;margin-top:10px}}
 </style>
 </head>
 <body>
@@ -844,6 +846,7 @@ function viewSearch(){
     <div><p class="eyebrow">Москва · ${MASTERS.length} ${(n=>n%10===1&&n%100!==11?"мастер сверен":"мастера сверены")(MASTERS.length)} · подбор по совпадению, без рейтингов</p>
     <h1>Найди своего мастера</h1>
     <p class="sub">Красота начинается с совпадения</p>
+    <p class="mission">Мы соединяем клиентов и мастеров, которые звучат в унисон. У каждого своя нота, и мы помогаем найти созвучную.</p>
     <p class="lead">Мы не ранжируем мастеров по звёздам. Мы находим того, кто совпадает с вами по подходу, темпу и манере работы. Работы, отзывы и место визита видны до записи.</p></div>
     <div class="howcol"><svg class="reso" viewBox="0 0 120 56" aria-hidden="true"><path class="arc" d="M38 10C30 20 30 36 38 46M30 4C18 18 18 38 30 52M82 10C90 20 90 36 82 46M90 4C102 18 102 38 90 52"/><g transform="translate(46 4) scale(2)"><path d="M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5"/><path d="M12 17.6V22"/></g></svg>
     <ol class="how">
