@@ -3,24 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FAF6F3">
+<meta name="theme-color" content="#FBF3EF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236E4B38'/%3E%3Cg transform='translate(4 4)' fill='none' stroke='%23FBF3EF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5'/%3E%3Cpath d='M12 17.6V22'/%3E%3C/g%3E%3C/svg%3E">
 <title>Камертон</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Prata&display=swap">
 <style>
-/* Камертон: пудровый фон, акцент «дека», одна гарнитура Inter (brand/kamerton-brand-guide.md, разделы 7–9) */
+/* Камертон v2: пудра, какао, эспрессо, персик; Prata + Manrope (brand/kamerton-brand-guide.md, разделы 7–9, по PDF Артёма) */
 :root{
-  --paper:#FAF6F3; --ink:#2A1E19; --muted:#6E5248; --hair:#E6D8D1; --tint:#F8ECE7; --surface:#EBCEC6;
-  --accent:#6B4535; --accent-ink:#FFFFFF; --accent-tint:#F8ECE7;
-  --ok:#4E7461; --ok-soft:#E3EDE6; --warn:#9A5600; --shade:rgba(42,30,25,.5); --line:var(--hair);
-  --f-display:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-mono:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --paper:#FBF3EF; --ink:#6E4B38; --muted:#8A6450; --hair:#D4AE9F; --tint:#F7E8E1; --surface:#EBCFC6;
+  --accent:#6E4B38; --accent-ink:#FBF3EF; --accent-tint:#F7E8E1; --espresso:#3B2A22; --peach:#E3B99C;
+  --ava-bg:#D4AE9F; --ava-ink:#6E4B38; --arc:#D4AE9F;
+  --ok:#6E4B38; --ok-soft:#F7E8E1; --warn:#A9755A; --shade:rgba(59,42,34,.5); --line:var(--hair);
+  --f-display:"Prata",Georgia,"Times New Roman",serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:4px;
 }
 :root[data-ritm="dark"]{
-  --paper:#17110F; --ink:#F3E9E4; --muted:#B9A39A; --hair:#3A2B26; --tint:#3A2B26; --surface:#2A201C;
-  --accent:#E2B5A3; --accent-ink:#17110F; --accent-tint:#3A2B26;
-  --ok:#9CC4AE; --ok-soft:#22312A; --warn:#F0A848; --shade:rgba(0,0,0,.65); color-scheme:dark}
+  --paper:#3B2A22; --ink:#FBF3EF; --muted:#D4AE9F; --hair:#6E4B38; --tint:#5A4336; --surface:#4A372D;
+  --accent:#E3B99C; --accent-ink:#3B2A22; --accent-tint:#5A4336;
+  --ava-bg:#6E4B38; --ava-ink:#E3B99C; --arc:#6E4B38;
+  --ok:#E3B99C; --ok-soft:#5A4336; --warn:#E3B99C; --shade:rgba(20,13,10,.6); color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font:15px/1.55 var(--f-body)}
@@ -508,12 +512,92 @@ h1,h2,h3,.who b,.day b,.date b,.kpi b,.price,.note > b,.phead h2{font-weight:600
   .card{padding:16px}
   .grid{gap:14px}
 }
+/* ===== Камертон v2: по PDF «логотип и шрифты» ===== */
+body{font-family:var(--f-body);font-size:16px;line-height:1.6;color:var(--ink)}
+h1,h2,.phead h2,.kpi b,.price,.day b,.date b,.note > b,.tdone h1,.tune h1{font-family:var(--f-display);font-weight:400;letter-spacing:0;line-height:1.2}
+h3,.dbody section > h3{font-family:var(--f-body);font-weight:600}
+.who b,.cname{font-family:var(--f-body);font-weight:600}
+.logo{gap:10px;color:var(--accent)}
+.logo .mark{width:22px;height:22px;stroke-width:1.8}
+.wordmark{font-family:var(--f-display);font-weight:400;font-size:1.25rem;letter-spacing:.14em;color:var(--accent);line-height:1}
+.logo small{font-family:var(--f-body);color:var(--muted);letter-spacing:.04em}
+.mark{stroke-width:1.8}
+/* прямые углы, круглые только пилюли и аватары */
+.btn,.card,.why,.tdone,.topt,.acc,.acchead:focus-visible,.search input,.role,.role button,.themebtn,.hint,.slot,.days,.map,.toast,.cell,.msg,.compose input,.linkbox code{border-radius:var(--r)}
+.ptag,.why li,.ver{border-radius:999px}
+.btn{font-family:var(--f-body);font-weight:500}
+.btn.primary{font-weight:600;letter-spacing:.16em;font-size:.8rem;padding-block:13px}
+.btn.primary:hover{filter:none;background:var(--espresso);border-color:var(--espresso)}
+:root[data-ritm="dark"] .btn.primary:hover{background:#F0CDB6;border-color:#F0CDB6}
+.btn:not(.primary):not(.ghost){border-color:var(--hair);color:var(--ink)}
+.btn:not(.primary):not(.ghost):hover{border-color:var(--ink);background:none}
+/* главный экран */
+.intro{position:relative;align-items:center;padding-block:12px 32px}
+.intro h1{font-size:clamp(2.2rem,5.6vw,4rem);line-height:1.1;color:var(--accent)}
+.intro .sub{font-family:var(--f-display);font-size:clamp(1.15rem,2.2vw,1.6rem);line-height:1.25;margin:10px 0 0;color:var(--ink)}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.howcol{display:grid;gap:18px;justify-items:start}
+.reso{width:150px;height:auto;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.reso .arc{stroke:var(--arc);stroke-width:1.4}
+.reso g path{stroke-width:.9}
+.how li{border-top-color:var(--hair)}
+.how li::before{font-family:var(--f-display);font-size:.95rem;color:var(--accent)}
+/* поиск и фильтры */
+.search input{border:1px solid var(--accent);box-shadow:none;background:var(--paper)}
+.search input:focus{box-shadow:0 0 0 3px var(--accent-tint)}
+.chip{font-size:.92rem}
+.chip.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.range input::-webkit-slider-thumb{box-shadow:0 1px 4px rgba(59,42,34,.18)}
+.role button.on{box-shadow:0 1px 3px rgba(59,42,34,.14)}
+/* карточка мастера — как в PDF */
+.grid{gap:20px}
+.card{background:var(--surface);padding:22px;gap:14px;border:0}
+.card .muted,.card .small.muted,.why,.tdone .lead,.card .match small{color:var(--ink)}
+.ava{background:var(--ava-bg);color:var(--ava-ink);font-family:var(--f-body);font-weight:600}
+.card .ava{width:56px;height:56px}
+.cname{font-size:1.08rem;color:var(--ink)}
+.appr{font-size:.95rem;color:var(--ink)}
+.ptag{background:var(--tint);color:var(--ink);font-size:.8rem;padding:5px 13px}
+:root[data-ritm="dark"] .ptag{background:var(--tint)}
+.match{color:var(--accent);font-weight:600;font-size:.92rem}
+.match .mark{width:20px;height:20px}
+.cfoot{border-top:0;padding-top:0}
+.ver{color:var(--accent);background:var(--tint);font-weight:600;letter-spacing:.02em;font-family:var(--f-body);font-size:.72rem}
+.why{background:var(--surface)}
+.why li{background:var(--paper);color:var(--ink)}
+.why li::after{color:var(--accent)}
+.selbox{border-top-color:var(--hair)}
+.selbox b{color:var(--accent)}
+/* настройка */
+.tune h1{font-size:clamp(1.7rem,4.4vw,2.4rem);color:var(--ink)}
+.tprog{height:2px}
+.topt{border-color:var(--hair);background:var(--paper)}
+.topt.on,.topt:hover{border-color:var(--accent);background:var(--surface)}
+.tdone{background:var(--surface);padding:36px 24px}
+.tdone .mark{width:52px;height:52px;stroke-width:1.4}
+.tdone h1{font-size:2.2rem}
+/* прочее */
+.toast{background:var(--espresso);color:#FBF3EF;border-left:3px solid var(--peach)}
+:root[data-ritm="dark"] .toast{background:#FBF3EF;color:#3B2A22;border-left-color:#6E4B38}
+.hint{background:var(--tint)}
+.msg.me{background:var(--accent);color:var(--accent-ink)}
+.top{background:var(--paper)}
+.tabbar button.on{color:var(--accent)}
+.kpi b{color:var(--accent)}
+@media (max-width:900px){.howcol{display:none}}
+@media (max-width:640px){
+  .intro{padding-block:4px 8px}
+  .intro h1{font-size:2.1rem}
+  .intro .sub{font-size:1.15rem}
+  .wordmark{font-size:1.05rem;letter-spacing:.12em}
+  .card{padding:18px}
+}
 </style>
 </head>
 <body>
 
 <header class="top"><div class="wrap">
-  <div class="logo"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5V12a4 4 0 0 0 8 0V2.5"/><path d="M12 16v5.5"/></svg>КАМЕРТОН <small>Москва · демо</small></div>
+  <div class="logo"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5"/><path d="M12 17.6V22"/></svg><span class="wordmark">КАМЕРТОН</span> <small>Москва · демо</small></div>
   <nav class="nav" id="nav"></nav>
   <button class="themebtn" id="themebtn" data-act="theme" aria-label="Переключить тему"></button>
   <div class="role" role="group" aria-label="Режим">
@@ -533,7 +617,7 @@ const PLACES=["Частный кабинет","Салон","Бьюти-ково�
 const HOURS=[10,11,12,13,14,15,16,17,18,19,20];
 const WD=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"];
 const MON=["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];
-const ART={nails:["#E8A3B5","#B4426A","#F6D7DF"],hair:["#C9925E","#5B3A26","#EBD3B8"],brows:["#8C6E63","#3A2A26","#D8C3B8"],makeup:["#D46A6A","#7A2E4E","#F2C4B4"],cosm:["#9CC7BE","#3E7B74","#E3F1EC"],massage:["#B9A6D6","#5C4A85","#E7DFF3"]};
+const ART={nails:["#EBCFC6","#A9755A","#F7E8E1"],hair:["#E3B99C","#6E4B38","#F7E8E1"],brows:["#D4AE9F","#3B2A22","#EBCFC6"],makeup:["#E3B99C","#8A6450","#FBF3EF"],cosm:["#F7E8E1","#A9755A","#EBCFC6"],massage:["#D4AE9F","#6E4B38","#F7E8E1"]};
 
 const MASTERS=[
  {id:"anna",name:"Анна Королёва",cat:"nails",spec:"Маникюр, педикюр",exp:7,place:"Частный кабинет",metro:"Таганская",addr:"ул. Таганская, 24, кабинет 3",salon:null,promo:true,hue:"#B4426A",
@@ -675,7 +759,7 @@ function daySlots(mid,day){
 }
 function nearest(mid){for(let d=0;d<7;d++){const o=daySlots(mid,d);const h=HOURS.find(h=>o[h]==="free");if(h!=null)return{d,h}}return null}
 /* настройка и совпадение */
-const MARK=`<svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5V12a4 4 0 0 0 8 0V2.5"/><path d="M12 16v5.5"/></svg>`;
+const MARK=`<svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5"/><path d="M12 17.6V22"/></svg>`;
 const TUNE=[
  {q:"Что хотите сделать?",k:"cat",opts:[["nails","Маникюр или педикюр"],["hair","Стрижку или окрашивание"],["brows","Брови или ресницы"],["makeup","Макияж или причёску"],["cosm","Уход за лицом"],["massage","Массаж"],["","Пока смотрю всё"]]},
  {q:"Какой темп визита вам ближе?",opts:[["спокойный темп","Спокойно, без спешки"],["точно в срок","Быстро и точно по времени"]]},
@@ -708,9 +792,9 @@ function pLabel(r){return !r.on?"любая":r.b>=r.hi?`от ${pr(r.a)}`:r.a<=r.
 function nearestLabel(n){if(!n)return"нет окон на неделю";return (n.d===0?"сегодня":n.d===1?"завтра":fmtDay(n.d))+" в "+n.h+":00"}
 
 /* ---------- утилиты UI ---------- */
-function ava(name,hue){const ini=name.split(" ").map(w=>w[0]).join("").slice(0,2);return `<span class="ava" style="background:${hue}">${ini}</span>`}
+function ava(name,hue){const ini=name.split(" ").map(w=>w[0]).join("").slice(0,2);return `<span class="ava">${ini}</span>`}
 function art(cat,seed,label){const [a,b,c]=ART[cat];const r=rng(seed);const x=Math.floor(r()*70)+15,y=Math.floor(r()*50)+15,ang=Math.floor(r()*180),w=6+Math.floor(r()*14);
-  return `<div class="art" style="background:radial-gradient(circle at ${x}% ${y}%,rgba(255,255,255,.55),transparent 32%),linear-gradient(${ang}deg,transparent 44%,${c} 44% ${44+w}%,transparent ${44+w}%),radial-gradient(ellipse 90% 70% at ${100-x}% 100%,${b},transparent 75%),linear-gradient(${ang+90}deg,${a},${b})">${label?`<span>${esc(label)}</span>`:""}</div>`}
+  return `<div class="art" style="background:radial-gradient(circle at ${x}% ${y}%,rgba(251,243,239,.5),transparent 32%),linear-gradient(${ang}deg,transparent 44%,${c} 44% ${44+w}%,transparent ${44+w}%),radial-gradient(ellipse 90% 70% at ${100-x}% 100%,${b},transparent 75%),linear-gradient(${ang+90}deg,${a},${b})">${label?`<span>${esc(label)}</span>`:""}</div>`}
 let toastT;
 function toast(t){const el=document.getElementById("toast");el.textContent=t;el.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>el.hidden=true,3600)}
 const myUpcoming=()=>S.bookings.filter(b=>b.client==="me"&&b.status==="upcoming");
@@ -758,12 +842,14 @@ function viewSearch(){
   return `${S.hintSeen?"":`<div class="hint" role="note"><span><b>Демо.</b> Выберите мастера и запишитесь. Вкладка «Мастер» вверху открывает кабинет мастера.</span><button class="btn ghost sm" data-act="hint-ok">Понятно</button></div>`}
   <section class="intro">
     <div><p class="eyebrow">Москва · ${MASTERS.length} ${(n=>n%10===1&&n%100!==11?"мастер сверен":"мастера сверены")(MASTERS.length)} · подбор по совпадению, без рейтингов</p>
-    <h1>Мастер, с которым вы звучите <em>в&nbsp;унисон</em></h1>
-    <p class="lead">Не лучший мастер в городе, а ваш. Камертон подбирает частных мастеров по совпадению подхода: темп, разговоры, результат. Работы, отзывы и место визита видны до записи.</p></div>
+    <h1>Найди своего мастера</h1>
+    <p class="sub">Красота начинается с совпадения</p>
+    <p class="lead">Мы не ранжируем мастеров по звёздам. Мы находим того, кто совпадает с вами по подходу, темпу и манере работы. Работы, отзывы и место визита видны до записи.</p></div>
+    <div class="howcol"><svg class="reso" viewBox="0 0 120 56" aria-hidden="true"><path class="arc" d="M38 10C30 20 30 36 38 46M30 4C18 18 18 38 30 52M82 10C90 20 90 36 82 46M90 4C102 18 102 38 90 52"/><g transform="translate(46 4) scale(2)"><path d="M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5"/><path d="M12 17.6V22"/></g></svg>
     <ol class="how">
       <li>Настройка: шесть коротких вопросов о том, как вам комфортно</li>
       <li>Совпадение: видно, с кем вы на одной ноте и почему</li>
-      <li>Запись в свободное окно. Напомним за сутки до визита</li></ol>
+      <li>Запись в свободное окно. Напомним за сутки до визита</li></ol></div>
   </section>
   <section class="filters ${S.showF?"open":""}">
     <label class="search"><span class="sr">Поиск</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Мастер или услуга" value="${esc(f.q)}" data-in="q"></label>
@@ -801,7 +887,7 @@ function card(m){
 function viewTune(){
   const i=S.tuneStep||0,a=S.tuneAns||[];
   if(i>=TUNE.length){const k=MASTERS.filter(m=>match(m)>=80).length;
-    return `<section class="tune"><div class="tdone">${MARK}<h1>Настроено</h1><p class="lead">Совпадение от 80%: ${k} ${k%10===1&&k%100!==11?"мастер":k%10>=2&&k%10<=4&&(k%100<10||k%100>=20)?"мастера":"мастеров"}. У каждого видно, почему вы совпали.</p>
+    return `<section class="tune"><div class="tdone">${MARK}<h1>Настроено</h1><p class="lead">Нашли ${k} ${k%10===1&&k%100!==11?"мастера":"мастеров"} с совпадением от 80%. У каждого видно, почему вы совпали.</p>
       <button class="btn primary wide" data-act="tune-done">Смотреть подборку</button><button class="btn ghost sm" data-act="tune-back">Изменить ответы</button></div></section>`}
   const q=TUNE[i];
   return `<section class="tune" aria-label="Настройка">
