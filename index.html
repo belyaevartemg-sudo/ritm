@@ -425,6 +425,15 @@ h3,.dbody section > h3{text-transform:none;letter-spacing:0;font-size:1rem;font-
 .search input{width:100%;box-sizing:border-box;border:1.5px solid var(--accent);border-radius:14px;background:var(--paper);padding:15px 16px 15px 48px;font:inherit;font-size:16px;color:var(--ink);box-shadow:0 0 0 4px var(--accent-tint)}
 .search input::placeholder{color:var(--muted)}
 .search input:focus{outline:none;box-shadow:0 0 0 4px var(--accent-tint),0 0 0 1px var(--accent)}
+
+/* запись в профиле свёрнута, сначала работы */
+.acc{border:1px solid var(--hair);border-radius:16px;padding:0;overflow:hidden;scroll-margin-top:12px}
+.acc.open{padding:0 16px 16px}
+.acc.open .acchead{margin:0 -16px 4px;width:calc(100% + 32px)}
+.acchead{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px;cursor:pointer}
+.acchead > span:first-child{display:grid;gap:2px}
+.acchead .chev{color:var(--accent);font-weight:600;font-size:.9rem;white-space:nowrap}
+.acchead:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:16px}
 </style>
 </head>
 <body>
@@ -557,6 +566,7 @@ function toast(t){const el=document.getElementById("toast");el.textContent=t;el.
 const myUpcoming=()=>S.bookings.filter(b=>b.client==="me"&&b.status==="upcoming");
 
 /* ---------- рендер ---------- */
+let scrollBook=false;
 function render(){
   document.getElementById("role-client").classList.toggle("on",S.role==="client");
   document.getElementById("role-master").classList.toggle("on",S.role==="master");
@@ -580,6 +590,7 @@ function render(){
   document.body.style.overflow=S.open&&S.role==="client"?"hidden":"";
   const ms=document.querySelector(".msgs");if(ms)ms.scrollTop=ms.scrollHeight;
   if(document.querySelector(".chat.conv-open")&&matchMedia("(max-width:640px)").matches)requestAnimationFrame(()=>window.scrollTo(0,document.documentElement.scrollHeight));
+  if(scrollBook){scrollBook=false;const bk=document.getElementById("booking");if(bk)requestAnimationFrame(()=>bk.scrollIntoView({behavior:"smooth",block:"start"}))}
   save();
 }
 
@@ -643,15 +654,16 @@ function viewProfile(){
       <h2>${m.name}</h2><div class="muted">${m.spec} · опыт ${m.exp} ${m.exp<5?"года":"лет"}</div>
       <div class="meta" style="margin-top:6px"><span><span class="star">★</span><b class="mono">${r.toFixed(2)}</b> по ${revs.length} проверенным отзывам</span><span>${m.salon?`работает в салоне «${m.salon}»`:"частный мастер"}</span></div></div>
       <button class="btn ghost sm" data-act="chat-open" data-v="${m.id}">Написать мастеру</button></div>
-    <section class="stack" id="booking"><h3>${S.resched?"Выберите новое время":"Запись"}</h3>
+    <section><h3 style="margin-bottom:10px">Работы</h3><div class="gallery">${[1,2,3,4,5,6].map(i=>art(m.cat,m.id+i,i===1?"до / после":"")).join("")}</div></section>
+    <section class="stack acc ${S.bookOpen?"open":""}" id="booking"><button class="acchead" data-act="booktoggle" aria-expanded="${S.bookOpen?"true":"false"}"><span><b>${S.resched?"Выберите новое время":"Запись"}</b><span class="small muted">Ближайшее окно ${nearestLabel(nearest(m.id))}</span></span><span class="chev" aria-hidden="true">${S.bookOpen?"Свернуть":"Выбрать время"}</span></button>
+      ${S.bookOpen?`
       <div class="svc">${m.svc.map((s,i)=>`<label class="${i===S.pSvc?"on":""}"><span><input type="radio" name="svc" id="svc-${i}" data-act="svc" data-v="${i}" ${i===S.pSvc?"checked":""}> ${s[0]}</span><span class="mono small">${s[2]} мин · <b>${rub(s[1])}</b></span></label>`).join("")}</div>
       <div class="days">${[0,1,2,3,4,5,6].map(d=>{const o=daySlots(m.id,d);const has=HOURS.some(h=>o[h]==="free");const dd=dayDate(d);
         return `<button class="day ${d===S.pDay?"on":""}" data-act="pday" data-v="${d}" ${has?"":"disabled"}><small>${d===0?"сегодня":WD[dd.getDay()]}</small><b>${dd.getDate()}</b><small>${has?HOURS.filter(h=>o[h]==="free").length+" окон":"нет окон"}</small></button>`}).join("")}</div>
-      ${free.length?`<div class="slots">${free.map(h=>`<button class="slot ${S.pSlot===h?"on":""}" data-act="slot" data-v="${h}">${h}:00</button>`).join("")}</div>`:`<div class="muted small">На этот день свободных окон нет — выберите другой день.</div>`}
+      ${free.length?`<div class="slots">${free.map(h=>`<button class="slot ${S.pSlot===h?"on":""}" data-act="slot" data-v="${h}">${h}:00</button>`).join("")}</div>`:`<div class="muted small">На этот день свободных окон нет — выберите другой день.</div>`}`:""}
     </section>
     <p style="margin:0;max-width:65ch">${m.about}</p>
     <div class="selbox"><b>Отбор пройден</b><span class="muted">Портфолио проверено, опыт от 2 лет, рейтинг не ниже 4,5.${m.promo?" Мастер оплачивает продвижение, оно не заменяет отбор.":""}</span></div>
-    <section><h3 style="margin-bottom:10px">Работы</h3><div class="gallery">${[1,2,3,4,5,6].map(i=>art(m.cat,m.id+i,i===1?"до / после":"")).join("")}</div></section>
     <section><h3 style="margin-bottom:10px">Где принимает</h3>
       <div class="map"><span>м. ${m.metro} · ${m.addr}</span></div>
       <p class="small muted" style="margin:6px 0 0">${m.place}. Фото места проверены при модерации.</p></section>
@@ -659,7 +671,7 @@ function viewProfile(){
       ${revs.slice(0,S.allRev?99:3).map(x=>`<div class="review"><div class="rhead"><span><b>${esc(x.author)}</b></span><span class="muted">${x.ago===0?"сегодня":x.ago+" дн. назад"}</span></div>
       <div><span class="star">${"★".repeat(x.stars)}</span><span style="color:var(--line)">${"★".repeat(5-x.stars)}</span> <span class="small muted">${esc(x.svc)}</span></div><p>${esc(x.text)}</p></div>`).join("")}${revs.length>3&&!S.allRev?`<button class="btn sm" data-act="allrev">Все отзывы · ${revs.length}</button>`:""}</section>
    </div>
-   <div class="dfoot"><div class="bookbar">${S.pSlot==null?`<span class="muted small">Выберите время, чтобы записаться</span><button class="btn primary" disabled>Записаться</button>`
+   <div class="dfoot"><div class="bookbar">${!S.bookOpen?`<span class="sum small"><b>${nearestLabel(nearest(m.id))}</b>ближайшее свободное окно</span><button class="btn primary" data-act="bookopen">Выбрать время</button>`:S.pSlot==null?`<span class="muted small">Выберите время, чтобы записаться</span><button class="btn primary" disabled>Записаться</button>`
      :`<span class="sum small"><b>${fmtDay(S.pDay)}, ${S.pSlot}:00 · ${rub(svc[1])}</b>${svc[0]}</span><button class="btn primary" data-act="book">${S.resched?"Перенести сюда":"Записаться"}</button>`}</div></div>
    </aside></div>`;
 }
@@ -803,7 +815,7 @@ document.addEventListener("click",e=>{
     case"tab":S.tab=v;S.open=null;S.chatView=false;break;
     case"cat":S.f.cat=v;break;
     case"clearf":S.f={cat:"all",metro:"all",place:"all",priv:false,q:"",sort:S.f.sort};break;
-    case"open":{S.open=v;S.allRev=false;S.pSvc=0;S.confirming=false;const n=nearest(v);S.pDay=n?n.d:0;S.pSlot=n?n.h:null;break}
+    case"open":{S.open=v;S.allRev=false;S.bookOpen=false;S.pSvc=0;S.confirming=false;const n=nearest(v);S.pDay=n?n.d:0;S.pSlot=n?n.h:null;break}
     case"close":case"close-bg":S.open=null;S.resched=null;break;
     case"svc":S.pSvc=+v;S.confirming=false;break;
     case"pday":{S.pDay=+v;const o=daySlots(S.open,S.pDay);const h=HOURS.find(x=>o[x]==="free");S.pSlot=h??null;S.confirming=false;break}
@@ -816,11 +828,13 @@ document.addEventListener("click",e=>{
       else toast(`Вы записаны: ${m.name}, ${fmtDay(S.pDay)}, ${S.pSlot}:00. Напомним за сутки.`);
       S.open=null;S.tab="bookings";S.pSlot=null;S.confirming=false;break}
     case"come":{const b=S.bookings.find(x=>x.id===+v);b.came=true;toast("Спасибо! Мастер видит, что вы придёте");break}
-    case"resched":{const b=S.bookings.find(x=>x.id===+v);S.resched=b.id;S.open=b.mid;S.pSvc=b.svc;S.pSlot=null;S.confirming=false;const n=nearest(b.mid);S.pDay=n?n.d:0;S.pSlot=n?n.h:null;break}
+    case"resched":{const b=S.bookings.find(x=>x.id===+v);S.resched=b.id;S.bookOpen=true;S.open=b.mid;S.pSvc=b.svc;S.pSlot=null;S.confirming=false;const n=nearest(b.mid);S.pDay=n?n.d:0;S.pSlot=n?n.h:null;break}
     case"sday":S.sDay=+v;break;
     case"ftoggle":S.showF=!S.showF;break;
     case"hint-ok":S.hintSeen=true;break;
     case"allrev":S.allRev=true;break;
+    case"booktoggle":S.bookOpen=!S.bookOpen;if(S.bookOpen)scrollBook=true;break;
+    case"bookopen":S.bookOpen=true;scrollBook=true;break;
     case"copylink":{const txt=t.dataset.v;try{navigator.clipboard.writeText(txt).then(()=>toast("Ссылка скопирована"),()=>toast("Выделите ссылку и скопируйте вручную"))}catch(err){toast("Выделите ссылку и скопируйте вручную")}return}
     case"cancel":S.cancelId=+v;break;
     case"cancel-no":S.cancelId=null;break;
