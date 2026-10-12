@@ -675,243 +675,174 @@ h3,.dbody section > h3{font-family:var(--f-body);font-weight:600}
 .ptag.on{font-weight:600}
 .cell.booked,.toast,.msg.me{font-weight:600}
 
-/* ===== 18:47 Артём, проба только на сайте: белый · бордовый · золото ===== */
-:root{--paper:#FFFDF8;--ink:#3A1C22;--muted:#7D6266;--hair:#E9DCC4;--tint:#F7F0E4;--surface:#F7F0E4;
-  --accent:#6E1F30;--accent-ink:#FFF9EE;--accent-tint:#F7F0E4;--ok:#6E1F30;--ok-soft:#F7F0E4;--warn:#8C6A35;--shade:rgba(58,28,34,.45);
-  --gold:#B8955A;--gold-deep:#8C6A35;--gold-light:#E2CC9C;
-  --gold-grad:linear-gradient(100deg,#9E7A43 0%,#D9BE86 28%,#B08A4E 52%,#E6D2A4 74%,#A07C45 100%);
-  --wine-grad:linear-gradient(160deg,#82283B 0%,#6E1F30 45%,#561726 100%);
-  --ava-bg:#F3EADB;--ava-ink:#6E1F30;--arc:#D9C3A0;
-  --btn:#6E1F30;--btn-hover:#5A1827;--btn-ink:#FFF9EE;--btn2:#F7F0E4;--btn2-hover:#EFE4D2;--field:#E2D2B4}
-body{background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .25 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat;color:var(--ink)}
-.top{background:rgba(255,253,248,.94);border-bottom:0;box-shadow:none;position:sticky}
-.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold-grad);opacity:.85}
-.wordmark{color:var(--accent)}
-.logo .mark,.reso{stroke:var(--gold)}
-.reso .arc{stroke:var(--gold-light)}
-.eyebrow{color:var(--gold-deep)}
-.intro h1{color:var(--accent)}
-.intro .sub{color:var(--gold-deep)}
-.mission{border-left:2px solid transparent;border-image:linear-gradient(180deg,#D9BE86,#9E7A43) 1}
-.how li{border-top-color:var(--hair)}
-.how li::before{color:var(--gold-deep)}
-.intro{border-bottom-color:var(--hair)}
-/* кнопки: глубокий бордовый с мягким переливом и тонкой золотой кромкой */
-.btn.primary,.day.on,.slot.on,.cell.booked,.ptag.on,.msg.me,.toast{background:var(--wine-grad);color:var(--btn-ink);box-shadow:inset 0 0 0 1px rgba(226,204,156,.35)}
-.btn.primary:hover{background:linear-gradient(160deg,#741F33 0%,#5E1928 55%,#4A1220 100%)}
-.btn.primary{letter-spacing:.12em}
-.btn.sm.primary{letter-spacing:.02em}
-.btn:not(.primary):not(.ghost){background:var(--btn2);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(184,149,90,.28)}
-.btn:not(.primary):not(.ghost):hover{background:var(--btn2-hover)}
-.btn.ghost,.btn.ghost:hover{color:var(--accent)}
-.slot{border-color:var(--field)}
-.slot.on{border-color:transparent}
-.day.on small{color:var(--gold-light)}
-/* отметки: шампань, выбранные — бордовые */
-.ptag{background:var(--tint);color:var(--ink)}
-.ptag.pick:hover{background:var(--btn2-hover)}
-.ptag.on,.ptag.pick.on:hover{color:var(--btn-ink)}
-.ptag.pick.on::before{color:var(--gold-light)}
-/* золото в мелочах */
-.ver{color:var(--gold-deep)}
-.chip.on{color:var(--accent);border-bottom:1px solid transparent;border-image:var(--gold-grad) 1}
-.nav button.on{border-bottom:2px solid transparent;border-image:var(--gold-grad) 1;color:var(--accent)}
-.nav .count,.tabbar .count{color:var(--gold-deep)}
-.tabbar{background:rgba(255,253,248,.96);border-top:1px solid var(--hair)}
-.tabbar button.on{color:var(--accent)}
-.ava{background:var(--ava-bg);color:var(--ava-ink);box-shadow:inset 0 0 0 1px var(--gold-light)}
-.kpi b,.price{color:var(--accent)}
-.date b{color:var(--accent)}
-.search input{border-color:var(--field);background:rgba(255,255,255,.7)}
-.search svg{color:var(--gold-deep)}
-.search input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(226,204,156,.35)}
-.range::after{background:var(--gold-grad)}
-.range input::-webkit-slider-thumb{border-color:var(--gold)}
-.range input::-moz-range-thumb{border-color:var(--gold)}
-.role{background:var(--tint)}
-.role button.on{background:#FFFFFF;color:var(--accent);box-shadow:0 1px 3px rgba(110,31,48,.12),inset 0 0 0 1px rgba(184,149,90,.35)}
-.plan.cur{border-top:2px solid transparent;border-image:var(--gold-grad) 1}
-.hint{background:var(--tint);box-shadow:inset 0 0 0 1px rgba(184,149,90,.25)}
-.hint b{color:var(--accent)}
-.tag::before{background:var(--gold)}
-.tag.acc,.tag.ok{color:var(--accent)}
-.selbox b,.why b{color:var(--accent)}
-.card .pics{box-shadow:0 0 0 1px rgba(184,149,90,.18)}
-.dhead,.drawer,.top{border-color:var(--hair)}
-.drawer{background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .25 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat}
-.dhead,.bookbar{background:rgba(255,253,248,.96)}
-.toast{border-left:0}
-.cell.free{background:var(--tint);color:var(--ink)}
-.msg{background:var(--tint)}
+/* ===== v4 «Soft UI» (19:20, Артём: «используй все скиллы и переработай сайт»).
+   UI/UX Pro Max → стиль Soft UI Evolution: светлая тёплая подложка, белые поверхности с мягкой многослойной тенью, 200–300 мс.
+   better-colors → две шкалы в OKLCH с одним оттенком h=12: нейтральная (n) и бордовая (a); компоненты берут только смысловые токены.
+   better-ui / Astryx → один язык краёв (тень у поверхностей, линия у полей), концентрические радиусы, нажатие 0.96, hover только для мыши.
+   better-accessibility → контраст измерен: текст ≥ 6.4:1, рамка поля 3.1:1, видимый фокус, цели ≥ 44px, reduced-motion. ===== */
+:root{
+  --n0:#FFFFFF;--n50:#F9F7F7;--n100:#F3EFEF;--n200:#E7E1E2;--n300:#D7CFCF;--n400:#998F90;--n600:#635858;--n900:#1D1617;
+  --a50:#FFF4F5;--a100:#FFE3E6;--a600:#971F3E;--a700:#78172F;
+  /* смысловые токены */
+  --paper:var(--n50);--surface:var(--n0);--ink:var(--n900);--muted:var(--n600);--hair:var(--n200);--field:var(--n400);--tint:var(--n100);
+  --accent:var(--a600);--accent-ink:#FFFFFF;--accent-tint:var(--a100);--ok:var(--a600);--ok-soft:var(--a50);--warn:var(--n600);
+  --btn:var(--a600);--btn-hover:var(--a700);--btn-ink:#FFFFFF;--btn2:var(--n0);--btn2-hover:var(--n100);
+  --ava-bg:var(--a50);--ava-ink:var(--a600);--arc:var(--n300);--shade:rgba(29,22,23,.32);
+  --sh-1:0 0 0 1px rgba(29,22,23,.05),0 1px 2px rgba(29,22,23,.05),0 2px 8px rgba(29,22,23,.04);
+  --sh-2:0 0 0 1px rgba(29,22,23,.05),0 4px 12px rgba(29,22,23,.07),0 14px 32px rgba(29,22,23,.07);
+  --sh-3:0 0 0 1px rgba(29,22,23,.04),0 12px 48px rgba(29,22,23,.16);
+  --ease:cubic-bezier(.2,0,0,1);
+  --r-sm:10px;--r:12px;--r-lg:20px}
+html,body{background:var(--paper);overflow-x:clip}
+body{color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+p{text-wrap:pretty}
+.mono,.price,.slot,.day b,.date b,.kpi b,.pfh b,.pends,.next{font-variant-numeric:tabular-nums}
+button,a,label{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-/* ===== 18:51 Артём: заметная фактура и неоднородный цвет ===== */
-:root{--paper-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .38 0 0 0 0 .22 0 0 0 .13 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .35' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .25 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");--velvet:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .12 0 0 0 0 .02 0 0 0 0 .05 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .32 0 0 0 0 .2 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --foil:linear-gradient(115deg,#8A6630 0%,#C9A55F 18%,#F3E2B3 32%,#B98F4C 46%,#E8D198 62%,#9A7238 80%,#D7B878 100%);
-  --wine-velvet:radial-gradient(120% 140% at 18% 0%,#9B3347 0%,#7A2336 38%,#5C1626 72%,#43101C 100%)}
-html{background:#FBF6EC}
-body{background:
-  var(--paper-tex),
-  radial-gradient(900px 520px at 8% -6%,rgba(233,214,175,.55),transparent 70%),
-  radial-gradient(800px 600px at 105% 18%,rgba(150,52,70,.08),transparent 70%),
-  radial-gradient(1100px 700px at 50% 110%,rgba(226,204,156,.35),transparent 70%),
-  linear-gradient(180deg,#FFFDF7 0%,#FBF5EA 55%,#F8F0E2 100%);background-attachment:scroll,fixed,fixed,fixed,fixed}
-.top{background:var(--paper-tex),linear-gradient(180deg,rgba(255,253,247,.97),rgba(251,245,234,.95))}
-.top::after{height:2px;background:var(--foil);opacity:1}
-.tabbar{background:var(--paper-tex),rgba(255,253,247,.97);border-top:0}
-.tabbar::before{content:"";position:absolute;left:0;right:0;top:0;height:1.5px;background:var(--foil)}
-/* металлическое золото в мелочах */
-.eyebrow,.intro .sub,.how li::before,.ver,.nav .count,.tabbar .count{background:var(--foil);-webkit-background-clip:text;background-clip:text;color:transparent}
-.intro .sub{background-size:140% 100%}
-.ver{font-weight:700}
-.intro h1,.phead h2{background:linear-gradient(170deg,#8E2D42 0%,#6E1F30 45%,#4A1220 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.logo .mark{stroke:var(--accent)}
-.intro,.how li,.panel,.selbox{border-color:rgba(184,149,90,.45)}
-.intro{border-bottom:0;position:relative}
-.intro::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--foil)}
-/* кнопки: бархатный бордовый с бликом и золотой кромкой */
-.btn.primary,.day.on,.slot.on,.cell.booked,.ptag.on,.msg.me,.toast{
-  background:var(--velvet),linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,0) 45%),var(--wine-velvet);
-  color:#FFF6E6;box-shadow:inset 0 0 0 1px rgba(232,209,152,.55),inset 0 1px 0 rgba(255,236,200,.35),0 6px 16px -10px rgba(74,18,32,.6)}
-.btn.primary:hover{background:var(--velvet),linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,0) 45%),radial-gradient(120% 140% at 18% 0%,#8A2B3E 0%,#681B2C 40%,#4C1220 75%,#380C17 100%)}
-.btn.primary{text-shadow:0 1px 0 rgba(0,0,0,.25)}
-/* шампань: вторичные кнопки, отметки, плашки */
-.btn:not(.primary):not(.ghost),.ptag:not(.on),.hint,.role,.cell.free,.msg:not(.me){
-  background:var(--grain),linear-gradient(135deg,#FBF4E6 0%,#F1E3C9 55%,#F7EDDB 100%);
-  box-shadow:inset 0 0 0 1px rgba(184,149,90,.4)}
-.btn:not(.primary):not(.ghost):hover,.ptag.pick:not(.on):hover{background:var(--grain),linear-gradient(135deg,#F6EBD6 0%,#EAD7B4 55%,#F2E4CB 100%)}
-.role button.on{background:linear-gradient(180deg,#FFFFFF,#FBF5EA)}
-.ava{background:var(--grain),radial-gradient(circle at 30% 25%,#FFF8EA,#EBDCC0 70%,#DCC69C);box-shadow:inset 0 0 0 1.5px #C9A55F}
-.search input{background:var(--grain),linear-gradient(180deg,rgba(255,255,255,.92),rgba(250,243,230,.92));border-color:rgba(184,149,90,.6)}
-.range::after{background:var(--foil);height:3px;margin-top:-1.5px}
-.chip.on{border-image:var(--foil) 1}
-.nav button.on{border-image:var(--foil) 1}
-/* «фото» работ: фактура бумаги и тёплый свет */
-.art::after{content:"";position:absolute;inset:0;background:var(--grain),radial-gradient(120% 90% at 85% 10%,rgba(255,240,210,.35),transparent 60%);pointer-events:none}
-.card .pics{box-shadow:0 0 0 1px rgba(184,149,90,.45)}
-.drawer{background:var(--paper-tex),linear-gradient(180deg,#FFFDF7,#F9F2E5)}
-.dhead,.bookbar{background:var(--paper-tex),rgba(255,253,247,.97)}
-.dhead{border-bottom:0;box-shadow:0 1px 0 rgba(184,149,90,.5)}
-.bookbar{border-top:0;box-shadow:0 -1px 0 rgba(184,149,90,.5)}
-.mission{border-image:var(--foil) 1}
-
-/* золото для текста темнее, чтобы читалось; яркий металл только в линиях */
-:root{--foil-text:linear-gradient(110deg,#7A5524 0%,#A57C3C 30%,#8A6530 55%,#B08A48 78%,#7E5A28 100%)}
-.eyebrow,.intro .sub,.how li::before,.ver,.nav .count,.tabbar .count{background:var(--foil-text);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:100% 100%}
-.panel{background:transparent}
-.dfoot .bookbar{background:var(--paper-tex),rgba(255,253,247,.97)}
-
-/* ===== 18:54 Артём: без золотистого фона и похожих бежевых заливок. Белый фон, бордовые заливки, золото только линиями ===== */
-:root{--paper:#FFFFFF;--tint:#FFFFFF;--surface:#FFFFFF;--hair:#E6D7BC;--field:#D9C29A;--ink:#2E1A1E;--muted:#6F5F62;
-  --white-tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .3 0 0 0 0 .3 0 0 0 .045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");--gold-line:#C2A063}
-html{background:#FFFFFF}
-body{background:var(--white-tex),#FFFFFF}
-.top,.tabbar,.dhead,.bookbar,.dfoot .bookbar,.drawer{background:var(--white-tex),#FFFFFF}
-/* вторичные кнопки, отметки, плашки — белые с тонкой золотой линией, без заливки */
-.btn:not(.primary):not(.ghost),.ptag:not(.on),.hint,.cell.free,.msg:not(.me){background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--gold-line);color:var(--ink)}
-.btn:not(.primary):not(.ghost):hover,.ptag.pick:not(.on):hover{background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--accent);color:var(--accent)}
-.ptag.more{box-shadow:none}
-.role{background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--gold-line)}
-.role button.on{background:var(--wine-velvet);color:#FFF6E6;box-shadow:none}
-.ava{background:#FFFFFF;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--gold-line)}
-.search input{background:#FFFFFF;border-color:var(--gold-line)}
-.art::after{background:radial-gradient(120% 90% at 85% 10%,rgba(255,255,255,.35),transparent 60%)}
-
-/* ===== 18:56 Артём: без золота, современный стиль. Тема «Вишня»: белый, графит, вишнёвый акцент, цветная аура ===== */
-:root{--paper:#FFFFFF;--ink:#1A1416;--muted:#6B6366;--hair:#ECE7E8;--field:#DED7D9;--tint:#F8EEF1;--surface:#FFFFFF;
-  --accent:#8A1538;--accent-ink:#FFFFFF;--accent-tint:#F8EEF1;--ok:#8A1538;--ok-soft:#F8EEF1;--warn:#6B6366;
-  --btn:#8A1538;--btn-hover:#6F0F2C;--btn-ink:#FFFFFF;--btn2:#FFFFFF;--btn2-hover:#FFFFFF;
-  --ava-bg:#F8EEF1;--ava-ink:#8A1538;--arc:#E4B6C3;--r:12px;
-  --aura:radial-gradient(38% 55% at 78% 22%,rgba(199,184,255,.55),transparent 70%),radial-gradient(34% 50% at 92% 58%,rgba(227,106,138,.38),transparent 70%),radial-gradient(30% 45% at 66% 70%,rgba(138,21,56,.18),transparent 70%)}
-html,body{background:#FFFFFF}
-body{background:#FFFFFF;color:var(--ink)}
-.top,.tabbar,.dhead,.bookbar,.dfoot .bookbar,.drawer{background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
-.drawer{background:#FFFFFF}
-.top::after,.tabbar::before,.intro::after{background:var(--hair);height:1px}
-.dhead{box-shadow:0 1px 0 var(--hair)}
-.bookbar{box-shadow:0 -1px 0 var(--hair)}
-.logo .mark{stroke:var(--accent)}
+/* шапка и таб-бар: полупрозрачное стекло, без линий-рамок */
+.top,.tabbar{background:rgba(249,247,247,.86);-webkit-backdrop-filter:saturate(1.4) blur(16px);backdrop-filter:saturate(1.4) blur(16px);border:0;box-shadow:0 1px 0 var(--hair)}
+.tabbar{box-shadow:0 -1px 0 var(--hair)}
+.logo,.logo .mark{color:var(--accent);stroke:var(--accent)}
 .wordmark{color:var(--ink)}
-/* золото и металл — снимаем */
-.eyebrow,.intro .sub,.how li::before,.ver,.nav .count,.tabbar .count,.intro h1,.phead h2{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:inherit}
-.eyebrow{color:var(--accent);letter-spacing:.16em}
-.intro h1,.phead h2{color:var(--ink)}
-.intro .sub{color:var(--accent)}
-.how li::before{color:var(--accent);font-family:var(--f-body);font-weight:600;font-size:.8rem}
-.ver{color:var(--accent);font-weight:600}
-.nav .count,.tabbar .count{color:var(--accent)}
-.mission{border-image:none;border-left:2px solid var(--accent)}
-.how li,.intro,.panel,.selbox{border-color:var(--hair)}
-/* главный экран: мягкая цветная аура вместо фактуры */
-.intro{background:var(--aura);border-radius:24px;padding-inline:clamp(0px,2vw,24px);margin-inline:calc(-1*clamp(0px,2vw,24px))}
-.reso{stroke:var(--accent)}
-.reso .arc{stroke:#C7B8FF;stroke-width:1.6}
-/* кнопки: сплошной вишнёвый, скруглённые, без капса */
-.btn{border-radius:999px;text-shadow:none}
-.btn.primary,.day.on,.slot.on,.cell.booked,.ptag.on,.msg.me,.toast,.role button.on{background:var(--accent);color:#FFFFFF;box-shadow:none}
-.btn.primary{text-transform:none;letter-spacing:0;font-weight:600;font-size:1rem}
-.btn.primary:hover{background:var(--btn-hover)}
-.btn:not(.primary):not(.ghost),.ptag:not(.on),.hint,.cell.free,.msg:not(.me),.search input,.role{background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--field);color:var(--ink)}
-.btn:not(.primary):not(.ghost):hover,.ptag.pick:not(.on):hover{background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--ink);color:var(--ink)}
-.msg:not(.me){background:#F6F4F4;box-shadow:none}
-.msg,.toast{border-radius:16px}
-.role{border-radius:999px;padding:3px}
-.role button{border-radius:999px}
-.ptag.pick.on::before{color:#FFFFFF}
-.ptag.more{box-shadow:none;background:none}
-.hint{border-radius:16px}
-.ava{background:var(--ava-bg);color:var(--ava-ink);box-shadow:none}
-.search input{border:0;border-radius:999px;box-shadow:inset 0 0 0 1px var(--field)}
-.search input:focus{box-shadow:inset 0 0 0 1.5px var(--accent),0 0 0 4px var(--accent-tint)}
-.search svg{color:var(--accent)}
-.chip.on,.nav button.on{border-image:none;border-bottom:2px solid var(--accent);color:var(--ink)}
-.chip.on{border-bottom-width:2px}
+.nav button{border-bottom:2px solid transparent;color:var(--muted);transition:color 150ms var(--ease)}
+.nav button.on{color:var(--ink);border-bottom-color:var(--accent)}
+.nav .count,.tabbar .count{color:var(--accent);background:none}
+/* переключатель «Клиент / Мастер»: сегменты */
+.role{background:var(--n100);border:0;border-radius:var(--r);padding:3px;gap:2px;box-shadow:none}
+.role button{border-radius:var(--r-sm);color:var(--muted);background:none;min-height:36px;transition:background-color 150ms var(--ease),color 150ms var(--ease)}
+.role button.on{background:var(--n0);color:var(--ink);box-shadow:var(--sh-1);font-weight:600}
 .tabbar button.on{color:var(--accent)}
-.range::after{background:var(--accent);height:3px;margin-top:-1.5px}
-.range input::-webkit-slider-thumb{border-color:var(--accent);box-shadow:0 1px 4px rgba(26,20,22,.18)}
-.range input::-moz-range-thumb{border-color:var(--accent)}
-.plan.cur{border-image:none;border-top:2px solid var(--accent)}
-.day.on small{color:rgba(255,255,255,.8)}
-.slot{border-color:var(--field);border-radius:999px}
-.days{border-radius:16px;border-color:var(--hair)}
-.acc{border-radius:16px;border-color:var(--hair)}
+
+/* заголовки и ритм */
+h1,h2,.phead h2,.intro h1{color:var(--ink);letter-spacing:-.01em;text-wrap:balance}
+.eyebrow{color:var(--muted);font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:none}
+.intro .sub{color:var(--accent);background:none}
+
+/* главный экран: текст слева, «как это работает» — белая карточка справа */
+.intro{border:0;margin-bottom:28px;padding-block:20px 8px;align-items:center}
+.intro::before,.intro::after,.howcol::before{content:none;display:none}
+.intro h1{font-size:clamp(2.4rem,5.4vw,4.25rem);line-height:1.04}
+.mission{border-left:2px solid var(--accent);color:var(--ink)}
+.howcol{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--sh-1);padding:24px;gap:14px}
+.reso{width:120px;stroke:var(--accent)}
+.reso .arc{stroke:var(--n300);opacity:1;stroke-width:1.4}
+.how li{border-top:1px solid var(--hair)}
+.how li:first-child{border-top:0}
+.how li::before{color:var(--accent);font-family:var(--f-body);font-weight:600;font-size:.8rem;background:none}
+
+/* кнопки: одна заливка на группу, остальные белые на тени */
+.btn{border:1px solid transparent;border-radius:var(--r);min-height:44px;text-transform:none;letter-spacing:0;font-weight:600;font-size:.95rem;text-shadow:none;
+  transition-property:background-color,box-shadow,color,scale;transition-duration:150ms;transition-timing-function:ease-out}
+.btn.sm{min-height:36px;font-size:.88rem}
+.btn.primary,.btn.primary:hover,.day.on,.slot.on,.ptag.on,.msg.me,.cell.booked{background:var(--btn);color:var(--btn-ink);box-shadow:none;border-color:transparent}
+.btn.primary,.btn.sm.primary{text-transform:none;letter-spacing:0;font-size:1rem}
+.btn.sm.primary{font-size:.92rem;white-space:nowrap}
+.btn:not(.primary):not(.ghost),.ptag.pick:not(.on){background:var(--btn2);color:var(--ink);box-shadow:var(--sh-1)}
+.btn.ghost,.btn.ghost:hover{background:none;box-shadow:none;color:var(--accent)}
+.btn:not(:disabled):active{scale:.96}
+@media (hover:hover){
+  .btn.primary:not(:disabled):hover{background:var(--btn-hover)}
+  .btn:not(.primary):not(.ghost):hover,.ptag.pick:not(.on):hover{background:var(--btn2-hover);box-shadow:var(--sh-1)}
+  .card:hover{box-shadow:var(--sh-2)}
+  .slot:not(.on):hover{box-shadow:0 0 0 1px var(--field)}
+}
+
+/* метки мастера */
+.ptag{background:var(--tint);color:var(--ink);border-radius:999px;box-shadow:none}
+.ptag.on{font-weight:600}
+.ptag.pick.on::before{color:var(--btn-ink)}
+.ptag.more{background:none;box-shadow:none;color:var(--muted)}
+.ver{color:var(--accent);font-weight:600;background:none}
 .tag::before{background:var(--accent)}
-.kpi b,.date b,.price{color:var(--ink)}
-.selbox b,.why b{color:var(--ink)}
-/* превью работ: современные дуотон-градиенты */
-.card .pics{border-radius:16px;box-shadow:none}
-.gallery{border-radius:16px;overflow:hidden}
-.art::after{background:radial-gradient(120% 90% at 85% 10%,rgba(255,255,255,.28),transparent 60%)}
-.art span{border-radius:999px;background:rgba(255,255,255,.9);color:var(--ink)}
 
-.intro{background:none;border-radius:0;padding-inline:0;margin-inline:0;isolation:isolate}
-.intro::before{content:"";position:absolute;inset:-60px -12vw -10px 38%;background:var(--aura);filter:blur(36px);z-index:-1;pointer-events:none}
-main{overflow-x:visible}
-html,body{overflow-x:clip}
-@media (max-width:640px){.intro::before{inset:-30px -16px 10% 35%;filter:blur(28px)}}
+/* поиск и фильтры */
+.search input{background:var(--surface);border:1px solid var(--field);border-radius:var(--r);box-shadow:var(--sh-1);transition:box-shadow 150ms var(--ease),border-color 150ms var(--ease)}
+.search input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-tint)}
+.search svg{color:var(--accent)}
+.cats{gap:6px}
+.chip{border:0;border-radius:999px;padding:8px 14px;min-height:40px;color:var(--muted);transition:background-color 150ms var(--ease),color 150ms var(--ease)}
+.chip.on{background:var(--surface);color:var(--ink);font-weight:600;box-shadow:var(--sh-1);border:0}
+.mtabs{border-bottom:0;gap:6px}
+.mtabs .chip{margin-bottom:0;padding-bottom:8px}
+.field input,.field select,.field textarea{border-bottom:1px solid var(--field)}
+.range::before{background:var(--n200)}
+.range::after{background:var(--accent);height:3px;margin-top:-1.5px}
+.range input::-webkit-slider-thumb{background:var(--n0);border:2px solid var(--accent);box-shadow:0 1px 3px rgba(29,22,23,.2)}
+.range input::-moz-range-thumb{background:var(--n0);border:2px solid var(--accent)}
+.check input{accent-color:var(--accent)}
 
-/* ===== 19:01 artifact-design: «Резонанс». Концепт: белая бумага с вишнёвым подтоном, графит, один вишнёвый акцент;
-   смелость в одном месте: тонкие круги звуковой волны камертона в шапке вместо лавандового пятна ===== */
-:root{--paper:#FFFDFD;--ink:#1F1418;--muted:#6E5F64;--hair:#F0E6E8;--field:#E2D5D9;--tint:#F9EFF2;--accent:#8A1538;--btn-hover:#6F0F2C;--accent-tint:#F9EFF2;--ava-bg:#F9EFF2;--ava-ink:#8A1538}
-html,body,body{background:var(--paper)}
-.drawer{background:var(--paper)}
-.top,.tabbar,.dhead,.bookbar,.dfoot .bookbar{background:rgba(255,253,253,.92)}
-.intro::before{inset:-40px -12vw 0 42%;filter:none;
-  background:radial-gradient(circle at 70% 46%,rgba(138,21,56,.10),transparent 26%),
-    repeating-radial-gradient(circle at 70% 46%,transparent 0 27px,rgba(138,21,56,.16) 27px 28px);
-  -webkit-mask:radial-gradient(circle at 70% 46%,#000 18%,transparent 62%);mask:radial-gradient(circle at 70% 46%,#000 18%,transparent 62%)}
-@media (max-width:640px){.intro::before{inset:-24px -16px 0 30%;filter:none}}
-.reso .arc{stroke:var(--accent);opacity:.35;stroke-width:1.2}
-/* форма по роли: таблетки только у меток и слотов, кнопки — 12px */
-.btn{border-radius:12px}
-.msg:not(.me){background:var(--tint)}
-.price,.slot,.day,.kpi b,.date b,.time{font-variant-numeric:tabular-nums}
-.intro h1{text-wrap:balance}
-/* круги расходятся от самого камертона */
-.howcol{position:relative;isolation:isolate}
-.howcol::before{content:"";position:absolute;left:75px;top:30px;width:720px;height:720px;transform:translate(-50%,-50%);z-index:-1;pointer-events:none;
-  background:radial-gradient(circle,rgba(138,21,56,.08),transparent 12%),repeating-radial-gradient(circle,transparent 0 31px,rgba(138,21,56,.15) 31px 32px);
-  -webkit-mask:radial-gradient(circle,#000 8%,transparent 50%);mask:radial-gradient(circle,#000 8%,transparent 50%)}
-@media (min-width:641px){.intro::before{display:none}}
+/* карточка мастера: белая поверхность, превью внутри с концентрическим радиусом (20 = 12 + 8) */
+.grid{gap:20px}
+.card{background:var(--surface);border-radius:var(--r-lg);padding:8px 8px 16px;box-shadow:var(--sh-1);border:1px solid transparent;gap:12px;
+  transition-property:box-shadow;transition-duration:200ms;transition-timing-function:var(--ease)}
+.card .body,.card > :not(.pics){margin-inline:8px}
+.card .pics{border-radius:var(--r);overflow:hidden;box-shadow:none;outline:1px solid rgba(0,0,0,.08);outline-offset:-1px;gap:2px}
+.card .btn.wide{width:calc(100% - 16px)}
+.ava{background:var(--ava-bg);color:var(--ava-ink);box-shadow:none}
+.appr{color:var(--ink)}
+.art span{background:rgba(255,255,255,.92);color:var(--ink);border-radius:999px;padding:1px 8px}
+.empty.panel{box-shadow:none;background:none}
+
+/* общие панели: белые поверхности на тени */
+.panel{background:var(--surface);border:0;border-radius:var(--r-lg);box-shadow:var(--sh-1);padding-inline:20px}
+.panel.chat{padding:0;overflow:hidden}
+.kpis{border:0;gap:12px}
+.kpi,.kpi + .kpi,.kpis .kpi:nth-child(n){border:0;padding:16px 18px}
+.kpi b{color:var(--accent)}
+.plans{gap:16px}
+.plan{padding:20px}
+.plan.cur{border:0;box-shadow:inset 0 0 0 2px var(--accent),var(--sh-1)}
+.note{padding:18px 20px}
+.bk{padding:14px 20px}
+.hint{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--sh-1);padding:12px 12px 12px 18px}
+.hint b{color:var(--accent)}
+.sched{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--sh-1);padding:12px}
+.sched th{border-bottom-color:var(--hair)}
+.cell{border-radius:8px}
+.cell.free{background:var(--a50);color:var(--accent);box-shadow:none}
+.mlist{border-top:0}
+
+/* профиль мастера: выезжающая белая панель */
+.shade{background:var(--shade)}
+.drawer{background:var(--surface);border:0;box-shadow:var(--sh-3);overscroll-behavior:contain}
+.dhead{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:0;box-shadow:0 1px 0 var(--hair)}
+.gallery{border-radius:var(--r);overflow:hidden;gap:2px;outline:1px solid rgba(0,0,0,.08);outline-offset:-1px}
+.acc{border:0;border-radius:var(--r-lg);background:var(--paper);box-shadow:none}
+.days{border:0;border-radius:var(--r);background:var(--surface);box-shadow:var(--sh-1);gap:2px;padding:4px}
+.day{border:0;border-radius:var(--r-sm)}
+.day.on small{color:rgba(255,255,255,.85);opacity:1}
+.slot{background:var(--surface);border:0;border-radius:var(--r-sm);box-shadow:var(--sh-1);min-height:44px}
+.svc label{border-bottom-color:var(--hair)}
+.bookbar,.dfoot .bookbar{background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:0;box-shadow:0 -1px 0 var(--hair)}
+.map{border:0;border-radius:var(--r);box-shadow:var(--sh-1)}
+
+/* чат */
+.threads{border-color:var(--hair);overscroll-behavior:contain}
+.thread.on{background:var(--n100);box-shadow:inset 2px 0 0 var(--accent)}
+.msgs{overscroll-behavior:contain}
+.msg,.toast{border-radius:16px}
+.msg:not(.me){background:var(--n100);color:var(--ink);box-shadow:none}
+.msg.sys{background:none}
+.compose input{border-bottom-color:var(--field)}
+.toast{background:var(--surface);color:var(--ink);box-shadow:var(--sh-3);border:0;font-weight:500}
+
+/* превью работ: мягкие градиенты одного тона, без полос */
+.art::after{content:none}
+
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  .intro{padding-block:4px 0;margin-bottom:16px}
+  .intro h1{font-size:2.05rem}
+  .grid{gap:16px}
+  .card{padding:6px 6px 14px}
+  .card .pics{border-radius:14px}
+  .card{border-radius:20px}
+  .panel.chat{background:none;box-shadow:none;border-radius:0}
+  .compose{background:rgba(249,247,247,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  .sched{display:none}
+  .kpis .kpi:nth-child(3){border:0;padding:16px 18px}
+}
 </style>
 </head>
 <body>
@@ -930,6 +861,7 @@ html,body,body{background:var(--paper)}
 <div id="overlay"></div>
 <div id="toast" class="toast" hidden></div>
 
+<script src="gsap.min.js"></script>
 <script>
 /* ---------- данные ---------- */
 const CATS=[["all","Все услуги"],["nails","Маникюр и педикюр"],["hair","Стрижки и окрашивание"],["brows","Брови и ресницы"],["makeup","Макияж"],["cosm","Косметология"],["massage","Массаж"]];
@@ -937,7 +869,7 @@ const PLACES=["Частный кабинет","Салон","Бьюти-ково�
 const HOURS=[10,11,12,13,14,15,16,17,18,19,20];
 const WD=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"];
 const MON=["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];
-const ART={nails:["#F6DCE3","#B4405F","#FFFFFF"],hair:["#EFE4E2","#7A2440","#FFFFFF"],brows:["#F3E3E6","#9A3A52","#FFFFFF"],makeup:["#FADDE4","#D06A86","#FFFFFF"],cosm:["#EEE8E6","#8E7A78","#FFFFFF"],massage:["#F2E6E3","#A86A72","#FFFFFF"]};
+const ART={nails:["#FBE9EC","#E3A4B1","#B95A72"],hair:["#F3EBE8","#C9A49B","#8C5A57"],brows:["#F6ECEC","#CFA0A6","#8E4256"],makeup:["#FDECEF","#EDB3BE","#C46A83"],cosm:["#F2EFEE","#C9BCBA","#8E7D7C"],massage:["#F5EEEB","#D5B3AA","#9E6E6A"]};
 
 const MASTERS=[
  {id:"anna",name:"Анна Королёва",cat:"nails",spec:"Маникюр, педикюр",exp:7,place:"Частный кабинет",metro:"Таганская",addr:"ул. Таганская, 24, кабинет 3",salon:null,promo:true,hue:"#B4426A",
@@ -1112,8 +1044,8 @@ function nearestLabel(n){if(!n)return"нет окон на неделю";return 
 
 /* ---------- утилиты UI ---------- */
 function ava(name,hue){const ini=name.split(" ").map(w=>w[0]).join("").slice(0,2);return `<span class="ava">${ini}</span>`}
-function art(cat,seed,label){const [a,b,c]=ART[cat];const r=rng(seed);const x=Math.floor(r()*70)+15,y=Math.floor(r()*50)+15,ang=Math.floor(r()*180),w=6+Math.floor(r()*14);
-  return `<div class="art" style="background:radial-gradient(circle at ${x}% ${y}%,rgba(251,243,239,.5),transparent 32%),linear-gradient(${ang}deg,transparent 44%,${c} 44% ${44+w}%,transparent ${44+w}%),radial-gradient(ellipse 90% 70% at ${100-x}% 100%,${b},transparent 75%),linear-gradient(${ang+90}deg,${a},${b})">${label?`<span>${esc(label)}</span>`:""}</div>`}
+function art(cat,seed,label){const [a,b,c]=ART[cat];const r=rng(seed);const x=Math.floor(r()*60)+20,y=Math.floor(r()*50)+10,x2=Math.floor(r()*60)+20,ang=Math.floor(r()*180);
+  return `<div class="art" style="background:radial-gradient(circle at ${x}% ${y}%,rgba(255,255,255,.7),transparent 38%),radial-gradient(ellipse 70% 60% at ${x2}% 100%,${c},transparent 70%),radial-gradient(ellipse 80% 70% at ${100-x}% ${100-y}%,${b},transparent 72%),linear-gradient(${ang}deg,${a},${b})">${label?`<span>${esc(label)}</span>`:""}</div>`}
 let toastT;
 function toast(t){const el=document.getElementById("toast");el.textContent=t;el.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>el.hidden=true,3600)}
 const myUpcoming=()=>S.bookings.filter(b=>b.client==="me"&&b.status==="upcoming");
@@ -1477,6 +1409,30 @@ function setTheme(t,silent){document.documentElement.dataset.ritm=t;document.doc
   const b=document.getElementById("themebtn");b.innerHTML=`<i></i>${t==="dark"?"Светлая тема":"Тёмная тема"}`;if(!silent)toast(t==="dark"?"Включена тёмная тема":"Включена светлая тема")}
 let savedTheme=null;try{savedTheme=localStorage.getItem("ritm-theme-v2")}catch(e){}
 setTheme("light",true); // тёмной темы нет (бренд-гайд v3, раздел 7)
+
+/* движение (GSAP, better-ui): только редкие события — первый показ раздела и открытие профиля.
+   Фильтры, вкладки внутри раздела и ввод не анимируются. При reduced-motion — только мягкое появление. */
+(function(){
+  let lastView=null,lastOpen=null;
+  const reduce=()=>window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function enter(targets,opts){const g=window.gsap;if(!g||!targets||!targets.length)return;
+    if(reduce())g.fromTo(targets,{opacity:0},{opacity:1,duration:.2,ease:"none",clearProps:"opacity"});
+    else g.fromTo(targets,{opacity:0,y:12,filter:"blur(4px)"},Object.assign({opacity:1,y:0,filter:"blur(0px)",duration:.3,ease:"power2.out",clearProps:"opacity,transform,filter"},opts||{}))}
+  function animate(){
+    const view=S.role+":"+(S.role==="client"?S.tab:S.mtab);
+    if(view!==lastView){lastView=view;const app=document.getElementById("app");
+      const chunks=[...app.querySelectorAll(".intro > *, .intro .howcol, .filters, .resinfo")].slice(0,6);
+      const cards=[...app.querySelectorAll(".grid > .card")].slice(0,9);
+      const rest=chunks.length||cards.length?[]:[...app.children].slice(0,6);
+      enter(chunks.concat(rest),{stagger:.1});enter(cards,{stagger:.06,delay:chunks.length?.25:0})}
+    const open=S.role==="client"&&S.open?S.open:null;
+    if(open&&open!==lastOpen){const d=document.querySelector(".drawer"),sh=document.querySelector(".shade");const g=window.gsap;
+      if(g&&d){if(reduce())g.fromTo(d,{opacity:0},{opacity:1,duration:.2,clearProps:"opacity"});
+        else{g.fromTo(sh,{backgroundColor:"rgba(29,22,23,0)"},{backgroundColor:"rgba(29,22,23,.32)",duration:.25,ease:"none",clearProps:"backgroundColor"});
+          g.fromTo(d,{x:32,opacity:0},{x:0,opacity:1,duration:.3,ease:"power3.out",clearProps:"transform,opacity"})}}}
+    lastOpen=open}
+  const r0=render;render=function(){r0();try{animate()}catch(e){}};
+})();
 syncAnna();render();
 </script>
 
