@@ -434,6 +434,22 @@ h3,.dbody section > h3{text-transform:none;letter-spacing:0;font-size:1rem;font-
 .acchead > span:first-child{display:grid;gap:2px}
 .acchead .chev{color:var(--accent);font-weight:600;font-size:.9rem;white-space:nowrap}
 .acchead:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:16px}
+
+/* фильтр цены: два ползунка */
+.price{grid-column:1/-1;display:grid;gap:8px;max-width:520px}
+.phead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.82rem;font-weight:500;color:var(--muted)}
+.phead b{color:var(--ink);font-size:.98rem;font-weight:600}
+.range{position:relative;height:28px}
+.range::before,.range::after{content:"";position:absolute;top:50%;height:4px;margin-top:-2px;border-radius:2px}
+.range::before{left:0;right:0;background:var(--hair)}
+.range::after{left:var(--a);right:calc(100% - var(--b));background:var(--accent)}
+.range input{position:absolute;inset:0;width:100%;margin:0;background:none;-webkit-appearance:none;appearance:none;pointer-events:none;z-index:1}
+.range input::-webkit-slider-runnable-track{background:none;border:0;height:28px}
+.range input::-moz-range-track{background:none;border:0}
+.range input::-webkit-slider-thumb{-webkit-appearance:none;pointer-events:auto;width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--paper);border:2px solid var(--accent);box-shadow:0 1px 4px rgba(0,0,0,.15);cursor:grab}
+.range input::-moz-range-thumb{pointer-events:auto;width:20px;height:20px;border-radius:50%;background:var(--paper);border:2px solid var(--accent);cursor:grab}
+.range input:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px var(--accent-tint)}
+.pends{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -555,6 +571,11 @@ function daySlots(mid,day){
 }
 function nearest(mid){for(let d=0;d<7;d++){const o=daySlots(mid,d);const h=HOURS.find(h=>o[h]==="free");if(h!=null)return{d,h}}return null}
 function rating(mid){const r=S.reviews[mid];return r.length?(r.reduce((a,x)=>a+x.stars,0)/r.length):0}
+const ALLP=()=>MASTERS.flatMap(m=>m.svc.map(x=>x[1]).filter(x=>x>0));
+const PSTEP=500,PLO=()=>Math.floor(Math.min(...ALLP())/PSTEP)*PSTEP,PHI=()=>Math.ceil(Math.max(...ALLP())/PSTEP)*PSTEP;
+function pRange(f){const lo=PLO(),hi=PHI();let a=f.pmin==null?lo:Math.max(lo,Math.min(hi,+f.pmin)),b=f.pmax==null?hi:Math.max(lo,Math.min(hi,+f.pmax));if(a>b)[a,b]=[b,a];return{lo,hi,a,b,on:a>lo||b<hi}}
+const pr=v=>String(v).replace(/\B(?=(\d{3})+(?!\d))/g," ")+" ₽";
+function pLabel(r){return !r.on?"любая":r.b>=r.hi?`от ${pr(r.a)}`:r.a<=r.lo?`до ${pr(r.b)}`:`${pr(r.a)} – ${pr(r.b)}`}
 function nearestLabel(n){if(!n)return"нет окон на неделю";return (n.d===0?"сегодня":n.d===1?"завтра":fmtDay(n.d))+" в "+n.h+":00"}
 
 /* ---------- утилиты UI ---------- */
@@ -597,7 +618,7 @@ function render(){
 function viewSearch(){
   const f=S.f;const metros=[...new Set(MASTERS.map(m=>m.metro))].sort();
   let list=MASTERS.filter(m=>(f.cat==="all"||m.cat===f.cat)&&(f.metro==="all"||m.metro===f.metro)&&(f.place==="all"||m.place===f.place)&&(!f.priv||!m.salon)
-    &&(!f.q||(m.name+" "+m.spec+" "+m.svc.map(s=>s[0]).join(" ")).toLowerCase().includes(f.q.toLowerCase())));
+    &&(!pRange(f).on||m.svc.some(x=>x[1]>0&&x[1]>=pRange(f).a&&x[1]<=pRange(f).b))&&(!f.q||(m.name+" "+m.spec+" "+m.svc.map(s=>s[0]).join(" ")).toLowerCase().includes(f.q.toLowerCase())));
   const minP=m=>Math.min(...m.svc.filter(s=>s[1]>0).map(s=>s[1]));
   const nk=m=>{const n=nearest(m.id);return n?n.d*100+n.h:9999};
   list.sort((a,b)=>f.sort==="price"?minP(a)-minP(b):f.sort==="soon"?nk(a)-nk(b):rating(b.id)-rating(a.id));
@@ -616,7 +637,7 @@ function viewSearch(){
   <section class="filters ${S.showF?"open":""}">
     <label class="search"><span class="sr">Поиск</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Мастер или услуга" value="${esc(f.q)}" data-in="q"></label>
     <div class="cats">${CATS.map(([k,l])=>`<button class="chip ${f.cat===k?"on":""}" data-act="cat" data-v="${k}">${l}</button>`).join("")}</div>
-${(()=>{const n=(f.metro!=="all")+(f.place!=="all")+(f.priv?1:0)+(f.sort!=="rating");return `<button class="btn sm ftoggle" data-act="ftoggle" aria-expanded="${S.showF?"true":"false"}">${S.showF?"Скрыть фильтры":"Фильтры"}${n?` · ${n}`:""}</button>`})()}
+${(()=>{const n=(f.metro!=="all")+(f.place!=="all")+(f.priv?1:0)+(f.sort!=="rating")+(pRange(f).on?1:0);return `<button class="btn sm ftoggle" data-act="ftoggle" aria-expanded="${S.showF?"true":"false"}">${S.showF?"Скрыть фильтры":"Фильтры"}${n?` · ${n}`:""}</button>`})()}
     <div class="frow">
       <label class="field">Метро<select id="metro" data-in="metro"><option value="all">Любое</option>${metros.map(x=>`<option ${f.metro===x?"selected":""}>${x}</option>`).join("")}</select></label>
       <label class="field">Где проходит визит<select id="place" data-in="place"><option value="all">Неважно</option>${PLACES.map(x=>`<option ${f.place===x?"selected":""}>${x}</option>`).join("")}</select></label>
@@ -625,10 +646,13 @@ ${(()=>{const n=(f.metro!=="all")+(f.place!=="all")+(f.priv?1:0)+(f.sort!=="rati
         <option value="soon" ${f.sort==="soon"?"selected":""}>Ближайшее окно</option>
         <option value="price" ${f.sort==="price"?"selected":""}>Сначала дешевле</option></select></label>
       <label class="check"><input id="priv" type="checkbox" data-in="priv" ${f.priv?"checked":""}> Только частные</label>
+      ${(()=>{const r=pRange(f),pc=v=>((v-r.lo)/(r.hi-r.lo)*100).toFixed(1);return `<div class="price"><div class="phead"><span>Цена за услугу</span><b id="pval">${pLabel(r)}</b></div>
+        <div class="range" id="prange" style="--a:${pc(r.a)}%;--b:${pc(r.b)}%"><input type="range" min="${r.lo}" max="${r.hi}" step="${PSTEP}" value="${r.a}" data-price="pmin" aria-label="Цена от"><input type="range" min="${r.lo}" max="${r.hi}" step="${PSTEP}" value="${r.b}" data-price="pmax" aria-label="Цена до"></div>
+        <div class="pends"><span>${pr(r.lo)}</span><span>${pr(r.hi)}</span></div></div>`})()}
     </div>
   </section>
   <div class="resinfo"><span class="muted small">Найдено мастеров: <b class="mono">${list.length}</b></span>
-    ${f.cat!=="all"||f.metro!=="all"||f.place!=="all"||f.priv||f.q?`<button class="btn ghost sm" data-act="clearf">Сбросить фильтры</button>`:""}</div>
+    ${f.cat!=="all"||f.metro!=="all"||f.place!=="all"||f.priv||f.q||pRange(f).on?`<button class="btn ghost sm" data-act="clearf">Сбросить фильтры</button>`:""}</div>
   ${list.length?`<div class="grid">${list.map(card).join("")}</div>`:`<div class="panel empty">Под эти фильтры мастеров нет. Попробуйте другую станцию метро или уберите «Только частные».</div>`}`;
 }
 function card(m){
@@ -814,7 +838,7 @@ document.addEventListener("click",e=>{
     case"role":S.role=v;S.open=null;if(v==="client"&&e.target.closest(".resinfo")){S.open="anna";const n=nearest("anna");S.pDay=n?n.d:0;S.pSlot=n?n.h:null}break;
     case"tab":S.tab=v;S.open=null;S.chatView=false;break;
     case"cat":S.f.cat=v;break;
-    case"clearf":S.f={cat:"all",metro:"all",place:"all",priv:false,q:"",sort:S.f.sort};break;
+    case"clearf":S.f={cat:"all",metro:"all",place:"all",priv:false,q:"",sort:S.f.sort,pmin:null,pmax:null};break;
     case"open":{S.open=v;S.allRev=false;S.bookOpen=false;S.pSvc=0;S.confirming=false;const n=nearest(v);S.pDay=n?n.d:0;S.pSlot=n?n.h:null;break}
     case"close":case"close-bg":S.open=null;S.resched=null;break;
     case"svc":S.pSvc=+v;S.confirming=false;break;
@@ -866,11 +890,16 @@ document.addEventListener("click",e=>{
 });
 document.addEventListener("input",e=>{
   const el=e.target;
+  if(el.dataset.price){const k=el.dataset.price,o=k==="pmin"?"pmax":"pmin",other=document.querySelector(`[data-price="${o}"]`);let v=+el.value;
+    if(k==="pmin"&&v>+other.value)v=+other.value;if(k==="pmax"&&v<+other.value)v=+other.value;el.value=v;S.f[k]=v;
+    const r=pRange(S.f),pc=v=>((v-r.lo)/(r.hi-r.lo)*100).toFixed(1),box=document.getElementById("prange");
+    box.style.setProperty("--a",pc(r.a)+"%");box.style.setProperty("--b",pc(r.b)+"%");document.getElementById("pval").textContent=pLabel(r);return}
   if(el.dataset.in){const k=el.dataset.in;S.f[k]=el.type==="checkbox"?el.checked:el.value;
     if(k==="q"){const pos=el.selectionStart;render();const q=document.getElementById("q");q.focus();q.setSelectionRange(pos,pos)}else render();return}
   if(el.dataset.svc){const s=M("anna").svc[+el.dataset.svc],k=+el.dataset.k;s[k]=k===0?el.value:Math.max(0,+el.value||0);saveAnna();return}
   if(el.dataset.mp){M("anna")[el.dataset.mp]=el.value;saveAnna();if(el.tagName==="SELECT")render()}
 });
+document.addEventListener("change",e=>{if(e.target.dataset.price){render();const el=document.querySelector(`[data-price="${e.target.dataset.price}"]`);if(el)el.focus()}});
 document.addEventListener("submit",e=>{
   e.preventDefault();const f=e.target,kind=f.dataset.form;
   if(kind==="review"){const b=S.bookings.find(x=>x.id===+f.dataset.v),txt=document.getElementById("rtext").value.trim();if(!txt)return;
