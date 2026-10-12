@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FFFCFA">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236E4B38'/%3E%3Cg transform='translate(4 4)' fill='none' stroke='%23FBF3EF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5'/%3E%3Cpath d='M12 17.6V22'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237B2D3B'/%3E%3Cg transform='translate(4 4)' fill='none' stroke='%23FBF3EF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5'/%3E%3Cpath d='M12 17.6V22'/%3E%3C/g%3E%3C/svg%3E">
 <title>Камертон</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Prata&display=swap">
@@ -658,12 +658,15 @@ h3,.dbody section > h3{font-family:var(--f-body);font-weight:600}
 .themebtn{display:none!important}
 .btn:not(.ghost){min-height:44px}
 .ptag{min-height:28px;display:inline-flex;align-items:center}
-.art span{background:rgba(251,243,239,.85);color:var(--btn-ink)}
+.art span{background:rgba(255,252,250,.9);color:var(--ink)}
 .ftoggle{display:none}
 @media (max-width:640px){.ftoggle{display:inline-flex}}
 
-/* ===== 13:05 Артём: фон белее, кнопки розовые #D66C83 с белым текстом (гайд v3.1, раздел 7) ===== */
-:root{--paper:#FFFCFA;--btn:#D66C83;--btn-hover:#C25A71;--btn-ink:#FFFFFF;--btn2:#FBEAEE;--btn2-hover:#F6DCE2;--field:#E8D3CB;--accent-tint:#FBEAEE}
+/* ===== 13:09 Артём: вместо розового бордовый; вся палитра в одной винно-бежевой гамме ===== */
+:root{--paper:#FFFCFA;--ink:#4A2C2C;--muted:#85696A;--hair:#E8D9D6;--tint:#F6EEEC;--surface:#F6EEEC;
+  --accent:#7B2D3B;--accent-ink:#FFFFFF;--accent-tint:#F6EEEC;--ok:#7B2D3B;--ok-soft:#F6EEEC;--warn:#85696A;--shade:rgba(74,44,44,.45);
+  --ava-bg:#EEDFDC;--ava-ink:#7B2D3B;--arc:#DCC5C1;
+  --btn:#7B2D3B;--btn-hover:#64232F;--btn-ink:#FFFFFF;--btn2:#F6EEEC;--btn2-hover:#EEE1DE;--field:#E3D1CD}
 .btn.primary,.btn.primary:hover,.day.on,.slot.on,.msg.me,.cell.booked,.toast,.ptag.on{color:#FFFFFF}
 .btn.primary{font-size:1rem;font-weight:600;letter-spacing:.06em}
 .btn.sm.primary{font-size:1rem;text-transform:none;letter-spacing:0;white-space:nowrap}
@@ -696,7 +699,7 @@ const PLACES=["Частный кабинет","Салон","Бьюти-ково�
 const HOURS=[10,11,12,13,14,15,16,17,18,19,20];
 const WD=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"];
 const MON=["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];
-const ART={nails:["#F3DFD8","#D9B3A5","#FBF3EF"],hair:["#F1D9C8","#D2AA92","#FBF3EF"],brows:["#EEDCD5","#CDAA9C","#FBF3EF"],makeup:["#F4E0D3","#D8B49F","#FBF3EF"],cosm:["#F7E8E1","#D6B6A9","#FBF3EF"],massage:["#EFDCD3","#CFAE9F","#FBF3EF"]};
+const ART={nails:["#F3E7E4","#D6B9B3","#FFFCFA"],hair:["#F1E4DF","#CDAEA6","#FFFCFA"],brows:["#EFE2DF","#C9A9A3","#FFFCFA"],makeup:["#F4E8E5","#D3B3AD","#FFFCFA"],cosm:["#F6EEEC","#D8C0BB","#FFFCFA"],massage:["#F0E3E0","#CBACA6","#FFFCFA"]};
 
 const MASTERS=[
  {id:"anna",name:"Анна Королёва",cat:"nails",spec:"Маникюр, педикюр",exp:7,place:"Частный кабинет",metro:"Таганская",addr:"ул. Таганская, 24, кабинет 3",salon:null,promo:true,hue:"#B4426A",
