@@ -888,6 +888,30 @@ body{background:#FFFFFF;color:var(--ink)}
 main{overflow-x:visible}
 html,body{overflow-x:clip}
 @media (max-width:640px){.intro::before{inset:-30px -16px 10% 35%;filter:blur(28px)}}
+
+/* ===== 19:01 artifact-design: «Резонанс». Концепт: белая бумага с вишнёвым подтоном, графит, один вишнёвый акцент;
+   смелость в одном месте: тонкие круги звуковой волны камертона в шапке вместо лавандового пятна ===== */
+:root{--paper:#FFFDFD;--ink:#1F1418;--muted:#6E5F64;--hair:#F0E6E8;--field:#E2D5D9;--tint:#F9EFF2;--accent:#8A1538;--btn-hover:#6F0F2C;--accent-tint:#F9EFF2;--ava-bg:#F9EFF2;--ava-ink:#8A1538}
+html,body,body{background:var(--paper)}
+.drawer{background:var(--paper)}
+.top,.tabbar,.dhead,.bookbar,.dfoot .bookbar{background:rgba(255,253,253,.92)}
+.intro::before{inset:-40px -12vw 0 42%;filter:none;
+  background:radial-gradient(circle at 70% 46%,rgba(138,21,56,.10),transparent 26%),
+    repeating-radial-gradient(circle at 70% 46%,transparent 0 27px,rgba(138,21,56,.16) 27px 28px);
+  -webkit-mask:radial-gradient(circle at 70% 46%,#000 18%,transparent 62%);mask:radial-gradient(circle at 70% 46%,#000 18%,transparent 62%)}
+@media (max-width:640px){.intro::before{inset:-24px -16px 0 30%;filter:none}}
+.reso .arc{stroke:var(--accent);opacity:.35;stroke-width:1.2}
+/* форма по роли: таблетки только у меток и слотов, кнопки — 12px */
+.btn{border-radius:12px}
+.msg:not(.me){background:var(--tint)}
+.price,.slot,.day,.kpi b,.date b,.time{font-variant-numeric:tabular-nums}
+.intro h1{text-wrap:balance}
+/* круги расходятся от самого камертона */
+.howcol{position:relative;isolation:isolate}
+.howcol::before{content:"";position:absolute;left:75px;top:30px;width:720px;height:720px;transform:translate(-50%,-50%);z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(138,21,56,.08),transparent 12%),repeating-radial-gradient(circle,transparent 0 31px,rgba(138,21,56,.15) 31px 32px);
+  -webkit-mask:radial-gradient(circle,#000 8%,transparent 50%);mask:radial-gradient(circle,#000 8%,transparent 50%)}
+@media (min-width:641px){.intro::before{display:none}}
 </style>
 </head>
 <body>
@@ -913,7 +937,7 @@ const PLACES=["Частный кабинет","Салон","Бьюти-ково�
 const HOURS=[10,11,12,13,14,15,16,17,18,19,20];
 const WD=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"];
 const MON=["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];
-const ART={nails:["#F7D9E2","#C9617F","#FFFFFF"],hair:["#ECE4FF","#9B85D6","#FFFFFF"],brows:["#F5E0E6","#A8445F","#FFFFFF"],makeup:["#FBDDE6","#E07A97","#FFFFFF"],cosm:["#EFE9FF","#B8A3E8","#FFFFFF"],massage:["#F3E1EA","#B66C8C","#FFFFFF"]};
+const ART={nails:["#F6DCE3","#B4405F","#FFFFFF"],hair:["#EFE4E2","#7A2440","#FFFFFF"],brows:["#F3E3E6","#9A3A52","#FFFFFF"],makeup:["#FADDE4","#D06A86","#FFFFFF"],cosm:["#EEE8E6","#8E7A78","#FFFFFF"],massage:["#F2E6E3","#A86A72","#FFFFFF"]};
 
 const MASTERS=[
  {id:"anna",name:"Анна Королёва",cat:"nails",spec:"Маникюр, педикюр",exp:7,place:"Частный кабинет",metro:"Таганская",addr:"ул. Таганская, 24, кабинет 3",salon:null,promo:true,hue:"#B4426A",
