@@ -851,6 +851,13 @@ h1,h2,.phead h2,.intro h1{color:var(--ink);letter-spacing:-.01em;text-wrap:balan
 .tabbar button.on .ti{stroke-width:1.9}
 .tabbar button{gap:3px;min-height:48px}
 .tabbar .count{top:0;left:calc(50% + 13px)}
+/* телефон: список чатов — белая карточка, без подсветки «выбранного» (в списке ещё ничего не выбрано) */
+@media (max-width:640px){
+  .threads{background:var(--surface);border-radius:var(--r-lg);box-shadow:var(--sh-1);overflow:hidden}
+  .thread{padding:14px 16px;gap:12px}
+  .thread:last-child{border-bottom:0}
+  .thread.on{background:none;box-shadow:none}
+}
 </style>
 </head>
 <body>
@@ -1051,7 +1058,7 @@ function pLabel(r){return !r.on?"любая":r.b>=r.hi?`от ${pr(r.a)}`:r.a<=r.
 function nearestLabel(n){if(!n)return"нет окон на неделю";return (n.d===0?"сегодня":n.d===1?"завтра":fmtDay(n.d))+" в "+n.h+":00"}
 
 /* ---------- утилиты UI ---------- */
-function ava(name,hue){const ini=name.split(" ").map(w=>w[0]).join("").slice(0,2);return `<span class="ava">${ini}</span>`}
+function ava(name,hue){const ini=(name.match(/[A-Za-zА-Яа-яЁё]+/g)||[""]).filter(w=>w.toLowerCase()!=="вы").map(w=>w[0].toUpperCase()).join("").slice(0,2);return `<span class="ava">${ini}</span>`}
 function art(cat,seed,label){const [a,b,c]=ART[cat];const r=rng(seed);const x=Math.floor(r()*60)+20,y=Math.floor(r()*50)+10,x2=Math.floor(r()*60)+20,ang=Math.floor(r()*180);
   return `<div class="art" style="background:radial-gradient(circle at ${x}% ${y}%,rgba(255,255,255,.7),transparent 38%),radial-gradient(ellipse 70% 60% at ${x2}% 100%,${c},transparent 70%),radial-gradient(ellipse 80% 70% at ${100-x}% ${100-y}%,${b},transparent 72%),linear-gradient(${ang}deg,${a},${b})">${label?`<span>${esc(label)}</span>`:""}</div>`}
 let toastT;
