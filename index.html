@@ -1431,7 +1431,17 @@ setTheme("light",true); // тёмной темы нет (бренд-гайд v3,
         else{g.fromTo(sh,{backgroundColor:"rgba(29,22,23,0)"},{backgroundColor:"rgba(29,22,23,.32)",duration:.25,ease:"none",clearProps:"backgroundColor"});
           g.fromTo(d,{x:32,opacity:0},{x:0,opacity:1,duration:.3,ease:"power3.out",clearProps:"transform,opacity"})}}}
     lastOpen=open}
-  const r0=render;render=function(){r0();try{animate()}catch(e){}};
+  /* перерисовка не должна сбрасывать прокрутку и фокус: запоминаем их до и возвращаем после */
+  const SCROLLERS=[".drawer",".days",".cats",".mtabs",".threads",".msched",".sched"];
+  const r0=render;render=function(){
+    const open=S.role==="client"?S.open:null,sx=[],ae=document.activeElement;
+    SCROLLERS.forEach(sel=>document.querySelectorAll(sel).forEach((el,i)=>sx.push([sel,i,el.scrollTop,el.scrollLeft])));
+    const fk=ae&&ae.dataset&&ae.dataset.act?[ae.dataset.act,ae.dataset.v]:ae&&ae.id?["#",ae.id]:null;
+    const keep=open&&open===lastOpen;
+    r0();
+    sx.forEach(([sel,i,t,l])=>{if(sel===".drawer"&&!keep)return;const el=document.querySelectorAll(sel)[i];if(el){el.scrollTop=t;el.scrollLeft=l}});
+    if(fk&&!document.activeElement.closest("form")){const el=fk[0]==="#"?document.getElementById(fk[1]):document.querySelector(`[data-act="${fk[0]}"]${fk[1]!=null?`[data-v="${CSS.escape(fk[1])}"]`:""}`);if(el&&el!==document.activeElement)el.focus({preventScroll:true})}
+    try{animate()}catch(e){}};
 })();
 syncAnna();render();
 </script>
