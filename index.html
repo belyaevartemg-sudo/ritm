@@ -858,6 +858,29 @@ h1,h2,.phead h2,.intro h1{color:var(--ink);letter-spacing:-.01em;text-wrap:balan
   .thread:last-child{border-bottom:0}
   .thread.on{background:none;box-shadow:none}
 }
+/* 19:37 Артём: «кривые обводки в тенях». На телефонах кольцо из box-shadow с размытием рисуется неровно
+   (снизу толще, на углах светлее). Поверхности и кнопки получают обычную ровную рамку 1px, без размытых теней.
+   Тень остаётся только у того, что действительно парит: профиль мастера и уведомление. */
+:root{--sh-1:none;--sh-2:none;--edge:1px solid var(--n200);--edge-strong:1px solid var(--n300)}
+.card,.panel,.howcol,.hint,.sched,.days,.map,.chip.on,.role button.on{box-shadow:none;border:var(--edge)}
+.panel.empty{border:0}
+.btn:not(.primary):not(.ghost),.ptag.pick:not(.on),.slot:not(.on){box-shadow:none;border:var(--edge-strong)}
+.slot.on{border:1px solid var(--btn)}
+.plan.cur{box-shadow:none;border:2px solid var(--accent)}
+.search input{box-shadow:none;border:1px solid var(--n400)}
+.search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
+.compose input{border:var(--edge-strong);border-radius:var(--r);background:var(--surface);padding:10px 14px;min-height:44px}
+.compose input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
+@media (hover:hover){
+  .card:hover{box-shadow:none;border-color:var(--n300)}
+  .btn:not(.primary):not(.ghost):hover,.ptag.pick:not(.on):hover{box-shadow:none;border-color:var(--n400)}
+  .slot:not(.on):hover{box-shadow:none;border-color:var(--n400)}
+}
+@media (max-width:640px){
+  .threads{box-shadow:none;border:var(--edge)}
+  .panel.chat{border:0}
+  .compose{box-shadow:0 -1px 0 var(--hair)}
+}
 </style>
 </head>
 <body>
