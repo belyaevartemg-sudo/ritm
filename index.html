@@ -590,7 +590,7 @@ function viewSearch(){
   <section class="intro">
     <div><p class="eyebrow">Москва · ${MASTERS.length} мастеров прошли отбор · ${MASTERS.reduce((a,m)=>a+S.reviews[m.id].length,0)} проверенных отзывов</p>
     <h1>Найдите <em>своего</em> мастера рядом с&nbsp;домом</h1>
-    <p class="lead">Маникюр, брови, стрижки, макияж и уход у проверенных частных мастеров. Работы, настоящие отзывы и место приёма видны до записи, а записаться можно в один шаг.</p></div>
+    <p class="lead">Маникюр, брови, стрижки, макияж и уход у проверенных частных мастеров. Работы, настоящие отзывы и то, где проходит визит, видны до записи, а записаться можно в один шаг.</p></div>
     <ol class="how">
       <li>Выберите услугу и станцию метро, куда удобно приехать</li>
       <li>Посмотрите работы и отзывы тех, кто был на приёме</li>
@@ -602,7 +602,7 @@ ${(()=>{const n=(f.metro!=="all")+(f.place!=="all")+(f.priv?1:0)+(f.sort!=="rati
     <div class="frow">
       <label class="field">Поиск<input id="q" type="search" placeholder="Имя мастера или услуга, например «балаяж»" value="${esc(f.q)}" data-in="q"></label>
       <label class="field">Метро<select id="metro" data-in="metro"><option value="all">Любое</option>${metros.map(x=>`<option ${f.metro===x?"selected":""}>${x}</option>`).join("")}</select></label>
-      <label class="field">Место приёма<select id="place" data-in="place"><option value="all">Любое</option>${PLACES.map(x=>`<option ${f.place===x?"selected":""}>${x}</option>`).join("")}</select></label>
+      <label class="field">Где проходит визит<select id="place" data-in="place"><option value="all">Неважно</option>${PLACES.map(x=>`<option ${f.place===x?"selected":""}>${x}</option>`).join("")}</select></label>
       <label class="field">Сортировка<select id="sort" data-in="sort">
         <option value="rating" ${f.sort==="rating"?"selected":""}>По рейтингу</option>
         <option value="soon" ${f.sort==="soon"?"selected":""}>Ближайшее окно</option>
@@ -648,7 +648,7 @@ function viewProfile(){
     <section><h3 style="margin-bottom:10px">Работы</h3><div class="gallery">${[1,2,3,4,5,6].map(i=>art(m.cat,m.id+i,i===1?"до / после":"")).join("")}</div></section>
     <section><h3 style="margin-bottom:10px">Где принимает</h3>
       <div class="map"><span>м. ${m.metro} · ${m.addr}</span></div>
-      <p class="small muted" style="margin:6px 0 0">${m.place}. Фото места приёма проверены при модерации.</p></section>
+      <p class="small muted" style="margin:6px 0 0">${m.place}. Фото места проверены при модерации.</p></section>
     <section><h3 style="margin-bottom:4px">Отзывы</h3><p class="small muted" style="margin:0 0 8px">Только после визитов, записанных через Ритм.</p>
       ${revs.slice(0,S.allRev?99:3).map(x=>`<div class="review"><div class="rhead"><span><b>${esc(x.author)}</b></span><span class="muted">${x.ago===0?"сегодня":x.ago+" дн. назад"}</span></div>
       <div><span class="star">${"★".repeat(x.stars)}</span><span style="color:var(--line)">${"★".repeat(5-x.stars)}</span> <span class="small muted">${esc(x.svc)}</span></div><p>${esc(x.text)}</p></div>`).join("")}${revs.length>3&&!S.allRev?`<button class="btn sm" data-act="allrev">Все отзывы · ${revs.length}</button>`:""}</section>
@@ -740,8 +740,8 @@ function viewMaster(){
       ${m.svc.map((s,i)=>`<div class="svcedit"><input id="sn-${i}" value="${esc(s[0])}" data-svc="${i}" data-k="0" aria-label="Название"><input id="sp-${i}" class="mono" type="number" min="0" step="100" value="${s[1]}" data-svc="${i}" data-k="1" aria-label="Цена, ₽"><input id="sd-${i}" class="mono" type="number" min="15" step="15" value="${s[2]}" data-svc="${i}" data-k="2" aria-label="Минут"><button class="btn ghost sm" data-act="svc-del" data-v="${i}">Удалить</button></div>`).join("")}
       <span class="small muted">Цена в рублях · длительность в минутах</span>
       <button class="btn sm" data-act="svc-add" style="justify-self:start">+ Добавить услугу</button>
-      <h2 style="margin-top:12px">Место приёма</h2>
-      <label class="field">Формат<select id="mplace" data-mp="place">${PLACES.map(p=>`<option ${m.place===p?"selected":""}>${p}</option>`).join("")}</select></label>
+      <h2 style="margin-top:12px">Где проходит визит</h2>
+      <label class="field">Где вы принимаете<select id="mplace" data-mp="place">${PLACES.map(p=>`<option ${m.place===p?"selected":""}>${p}</option>`).join("")}</select></label>
       <label class="field">Адрес<input id="maddr" value="${esc(m.addr)}" data-mp="addr"></label>
       <label class="field">О себе<textarea id="mabout" rows="3" data-mp="about">${esc(m.about)}</textarea></label>
       <span class="small muted">Изменения сразу видны клиентам — проверьте во вкладке «Клиент».</span>
