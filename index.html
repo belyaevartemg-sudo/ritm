@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236E1F30'/%3E%3Cg transform='translate(4 4)' fill='none' stroke='%23FBF3EF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5'/%3E%3Cpath d='M12 17.6V22'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%238A1538'/%3E%3Cg transform='translate(4 4)' fill='none' stroke='%23FBF3EF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5'/%3E%3Cpath d='M12 17.6V22'/%3E%3C/g%3E%3C/svg%3E">
 <title>Камертон</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Prata&display=swap">
@@ -764,7 +764,7 @@ body{background:
 .intro .sub{background-size:140% 100%}
 .ver{font-weight:700}
 .intro h1,.phead h2{background:linear-gradient(170deg,#8E2D42 0%,#6E1F30 45%,#4A1220 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.logo .mark{stroke:url(#foilg)}
+.logo .mark{stroke:var(--accent)}
 .intro,.how li,.panel,.selbox{border-color:rgba(184,149,90,.45)}
 .intro{border-bottom:0;position:relative}
 .intro::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--foil)}
@@ -815,6 +815,79 @@ body{background:var(--white-tex),#FFFFFF}
 .ava{background:#FFFFFF;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--gold-line)}
 .search input{background:#FFFFFF;border-color:var(--gold-line)}
 .art::after{background:radial-gradient(120% 90% at 85% 10%,rgba(255,255,255,.35),transparent 60%)}
+
+/* ===== 18:56 Артём: без золота, современный стиль. Тема «Вишня»: белый, графит, вишнёвый акцент, цветная аура ===== */
+:root{--paper:#FFFFFF;--ink:#1A1416;--muted:#6B6366;--hair:#ECE7E8;--field:#DED7D9;--tint:#F8EEF1;--surface:#FFFFFF;
+  --accent:#8A1538;--accent-ink:#FFFFFF;--accent-tint:#F8EEF1;--ok:#8A1538;--ok-soft:#F8EEF1;--warn:#6B6366;
+  --btn:#8A1538;--btn-hover:#6F0F2C;--btn-ink:#FFFFFF;--btn2:#FFFFFF;--btn2-hover:#FFFFFF;
+  --ava-bg:#F8EEF1;--ava-ink:#8A1538;--arc:#E4B6C3;--r:12px;
+  --aura:radial-gradient(38% 55% at 78% 22%,rgba(199,184,255,.55),transparent 70%),radial-gradient(34% 50% at 92% 58%,rgba(227,106,138,.38),transparent 70%),radial-gradient(30% 45% at 66% 70%,rgba(138,21,56,.18),transparent 70%)}
+html,body{background:#FFFFFF}
+body{background:#FFFFFF;color:var(--ink)}
+.top,.tabbar,.dhead,.bookbar,.dfoot .bookbar,.drawer{background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.drawer{background:#FFFFFF}
+.top::after,.tabbar::before,.intro::after{background:var(--hair);height:1px}
+.dhead{box-shadow:0 1px 0 var(--hair)}
+.bookbar{box-shadow:0 -1px 0 var(--hair)}
+.logo .mark{stroke:var(--accent)}
+.wordmark{color:var(--ink)}
+/* золото и металл — снимаем */
+.eyebrow,.intro .sub,.how li::before,.ver,.nav .count,.tabbar .count,.intro h1,.phead h2{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:inherit}
+.eyebrow{color:var(--accent);letter-spacing:.16em}
+.intro h1,.phead h2{color:var(--ink)}
+.intro .sub{color:var(--accent)}
+.how li::before{color:var(--accent);font-family:var(--f-body);font-weight:600;font-size:.8rem}
+.ver{color:var(--accent);font-weight:600}
+.nav .count,.tabbar .count{color:var(--accent)}
+.mission{border-image:none;border-left:2px solid var(--accent)}
+.how li,.intro,.panel,.selbox{border-color:var(--hair)}
+/* главный экран: мягкая цветная аура вместо фактуры */
+.intro{background:var(--aura);border-radius:24px;padding-inline:clamp(0px,2vw,24px);margin-inline:calc(-1*clamp(0px,2vw,24px))}
+.reso{stroke:var(--accent)}
+.reso .arc{stroke:#C7B8FF;stroke-width:1.6}
+/* кнопки: сплошной вишнёвый, скруглённые, без капса */
+.btn{border-radius:999px;text-shadow:none}
+.btn.primary,.day.on,.slot.on,.cell.booked,.ptag.on,.msg.me,.toast,.role button.on{background:var(--accent);color:#FFFFFF;box-shadow:none}
+.btn.primary{text-transform:none;letter-spacing:0;font-weight:600;font-size:1rem}
+.btn.primary:hover{background:var(--btn-hover)}
+.btn:not(.primary):not(.ghost),.ptag:not(.on),.hint,.cell.free,.msg:not(.me),.search input,.role{background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--field);color:var(--ink)}
+.btn:not(.primary):not(.ghost):hover,.ptag.pick:not(.on):hover{background:#FFFFFF;box-shadow:inset 0 0 0 1px var(--ink);color:var(--ink)}
+.msg:not(.me){background:#F6F4F4;box-shadow:none}
+.msg,.toast{border-radius:16px}
+.role{border-radius:999px;padding:3px}
+.role button{border-radius:999px}
+.ptag.pick.on::before{color:#FFFFFF}
+.ptag.more{box-shadow:none;background:none}
+.hint{border-radius:16px}
+.ava{background:var(--ava-bg);color:var(--ava-ink);box-shadow:none}
+.search input{border:0;border-radius:999px;box-shadow:inset 0 0 0 1px var(--field)}
+.search input:focus{box-shadow:inset 0 0 0 1.5px var(--accent),0 0 0 4px var(--accent-tint)}
+.search svg{color:var(--accent)}
+.chip.on,.nav button.on{border-image:none;border-bottom:2px solid var(--accent);color:var(--ink)}
+.chip.on{border-bottom-width:2px}
+.tabbar button.on{color:var(--accent)}
+.range::after{background:var(--accent);height:3px;margin-top:-1.5px}
+.range input::-webkit-slider-thumb{border-color:var(--accent);box-shadow:0 1px 4px rgba(26,20,22,.18)}
+.range input::-moz-range-thumb{border-color:var(--accent)}
+.plan.cur{border-image:none;border-top:2px solid var(--accent)}
+.day.on small{color:rgba(255,255,255,.8)}
+.slot{border-color:var(--field);border-radius:999px}
+.days{border-radius:16px;border-color:var(--hair)}
+.acc{border-radius:16px;border-color:var(--hair)}
+.tag::before{background:var(--accent)}
+.kpi b,.date b,.price{color:var(--ink)}
+.selbox b,.why b{color:var(--ink)}
+/* превью работ: современные дуотон-градиенты */
+.card .pics{border-radius:16px;box-shadow:none}
+.gallery{border-radius:16px;overflow:hidden}
+.art::after{background:radial-gradient(120% 90% at 85% 10%,rgba(255,255,255,.28),transparent 60%)}
+.art span{border-radius:999px;background:rgba(255,255,255,.9);color:var(--ink)}
+
+.intro{background:none;border-radius:0;padding-inline:0;margin-inline:0;isolation:isolate}
+.intro::before{content:"";position:absolute;inset:-60px -12vw -10px 38%;background:var(--aura);filter:blur(36px);z-index:-1;pointer-events:none}
+main{overflow-x:visible}
+html,body{overflow-x:clip}
+@media (max-width:640px){.intro::before{inset:-30px -16px 10% 35%;filter:blur(28px)}}
 </style>
 </head>
 <body>
@@ -840,7 +913,7 @@ const PLACES=["Частный кабинет","Салон","Бьюти-ково�
 const HOURS=[10,11,12,13,14,15,16,17,18,19,20];
 const WD=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"];
 const MON=["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];
-const ART={nails:["#F5EEEF","#D8C2C6","#FFFFFF"],hair:["#F3EDEE","#CDB6BA","#FFFFFF"],brows:["#F4EFEF","#C9B2B6","#FFFFFF"],makeup:["#F6F0F1","#D3BCC0","#FFFFFF"],cosm:["#F7F3F3","#D8C6C9","#FFFFFF"],massage:["#F2ECED","#CBB3B7","#FFFFFF"]};
+const ART={nails:["#F7D9E2","#C9617F","#FFFFFF"],hair:["#ECE4FF","#9B85D6","#FFFFFF"],brows:["#F5E0E6","#A8445F","#FFFFFF"],makeup:["#FBDDE6","#E07A97","#FFFFFF"],cosm:["#EFE9FF","#B8A3E8","#FFFFFF"],massage:["#F3E1EA","#B66C8C","#FFFFFF"]};
 
 const MASTERS=[
  {id:"anna",name:"Анна Королёва",cat:"nails",spec:"Маникюр, педикюр",exp:7,place:"Частный кабинет",metro:"Таганская",addr:"ул. Таганская, 24, кабинет 3",salon:null,promo:true,hue:"#B4426A",
