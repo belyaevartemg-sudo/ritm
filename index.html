@@ -655,6 +655,9 @@ h3,.dbody section > h3{font-family:var(--f-body);font-weight:600}
 .days{border:1px solid var(--field)}
 .acc{border-color:var(--field)}
 .svc label.on{color:var(--ink);font-weight:600}
+.themebtn{display:none!important}
+.btn:not(.ghost){min-height:44px}
+.ptag{min-height:28px;display:inline-flex;align-items:center}
 .art span{background:rgba(251,243,239,.85);color:var(--btn-ink)}
 .ftoggle{display:none}
 @media (max-width:640px){.ftoggle{display:inline-flex}}
@@ -1222,7 +1225,7 @@ function curTheme(){return document.documentElement.dataset.ritm==="dark"?"dark"
 function setTheme(t,silent){document.documentElement.dataset.ritm=t;document.documentElement.style.colorScheme=t;try{localStorage.setItem("ritm-theme-v2",t)}catch(e){}
   const b=document.getElementById("themebtn");b.innerHTML=`<i></i>${t==="dark"?"Светлая тема":"Тёмная тема"}`;if(!silent)toast(t==="dark"?"Включена тёмная тема":"Включена светлая тема")}
 let savedTheme=null;try{savedTheme=localStorage.getItem("ritm-theme-v2")}catch(e){}
-setTheme(savedTheme==="dark"?"dark":"light",true);
+setTheme("light",true); // тёмной темы нет (бренд-гайд v3, раздел 7)
 syncAnna();render();
 </script>
 
