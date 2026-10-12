@@ -92,7 +92,7 @@ textarea{resize:vertical}
 
 .filters{display:grid;gap:18px;margin-bottom:26px}
 .cats{display:flex;gap:22px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
-.frow{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr)) auto;gap:20px;align-items:end}
+.frow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:20px;align-items:end}
 .check{display:flex;gap:8px;align-items:center;font-size:.85rem;padding-bottom:9px;white-space:nowrap}
 .check input{accent-color:var(--accent);width:16px;height:16px}
 .resinfo{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:16px;flex-wrap:wrap}
@@ -240,7 +240,6 @@ textarea{resize:vertical}
   .nav{order:3;flex-basis:100%;gap:18px}
   .top .wrap{justify-content:space-between}
   .frow{grid-template-columns:1fr 1fr}
-  .frow .field:first-child{grid-column:1/-1}
   .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
   .kpi:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--hair)}
   .kpi:nth-child(4){border-top:1px solid var(--hair)}
@@ -277,7 +276,6 @@ textarea{resize:vertical}
   .intro .lead{display:none}
   .intro .eyebrow,.themebtn,.resinfo > .muted,.resinfo > .btn[data-act=role]{display:none}
   .selbox{font-size:.85rem}
-  .frow > .field:first-child{font-size:0;gap:0}
   .cols > aside > .note:last-child{display:none}
   .kpi:nth-child(2),.kpi:nth-child(4){display:none}
   .kpis{grid-template-columns:1fr 1fr}
@@ -289,7 +287,7 @@ textarea{resize:vertical}
   .intro h1{font-size:1.5rem;line-height:1.08}
   .filters{gap:14px;margin-bottom:18px}
   .ftoggle{display:inline-flex;justify-self:start;align-items:center;gap:6px}
-  .filters:not(.open) .frow > :not(:first-child){display:none}
+  .filters:not(.open) .frow{display:none}
   .frow{grid-template-columns:1fr 1fr}
   .mtabs{display:none}
   .kpis.alt{display:none}
@@ -419,6 +417,14 @@ h3,.dbody section > h3{text-transform:none;letter-spacing:0;font-size:1rem;font-
   .dbody{gap:20px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* строка поиска: заметная, с лупой */
+.search{position:relative;display:block}
+.search .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--accent);pointer-events:none}
+.search input{width:100%;box-sizing:border-box;border:1.5px solid var(--accent);border-radius:14px;background:var(--paper);padding:15px 16px 15px 48px;font:inherit;font-size:16px;color:var(--ink);box-shadow:0 0 0 4px var(--accent-tint)}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:none;box-shadow:0 0 0 4px var(--accent-tint),0 0 0 1px var(--accent)}
 </style>
 </head>
 <body>
@@ -597,10 +603,10 @@ function viewSearch(){
       <li>Запишитесь в свободное окно. Напомним за сутки до визита</li></ol>
   </section>
   <section class="filters ${S.showF?"open":""}">
+    <label class="search"><span class="sr">Поиск</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Мастер или услуга" value="${esc(f.q)}" data-in="q"></label>
     <div class="cats">${CATS.map(([k,l])=>`<button class="chip ${f.cat===k?"on":""}" data-act="cat" data-v="${k}">${l}</button>`).join("")}</div>
 ${(()=>{const n=(f.metro!=="all")+(f.place!=="all")+(f.priv?1:0)+(f.sort!=="rating");return `<button class="btn sm ftoggle" data-act="ftoggle" aria-expanded="${S.showF?"true":"false"}">${S.showF?"Скрыть фильтры":"Фильтры"}${n?` · ${n}`:""}</button>`})()}
     <div class="frow">
-      <label class="field">Поиск<input id="q" type="search" placeholder="Имя мастера или услуга, например «балаяж»" value="${esc(f.q)}" data-in="q"></label>
       <label class="field">Метро<select id="metro" data-in="metro"><option value="all">Любое</option>${metros.map(x=>`<option ${f.metro===x?"selected":""}>${x}</option>`).join("")}</select></label>
       <label class="field">Где проходит визит<select id="place" data-in="place"><option value="all">Неважно</option>${PLACES.map(x=>`<option ${f.place===x?"selected":""}>${x}</option>`).join("")}</select></label>
       <label class="field">Сортировка<select id="sort" data-in="sort">
