@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#FAF6F3">
 <title>Камертон</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
 <style>
-/* Layout: beauty lookbook — hairline rules instead of boxes, square corners, portraits of work up front, booking as a printed appointment ticket */
+/* Камертон: пудровый фон, акцент «дека», одна гарнитура Inter (brand/kamerton-brand-guide.md, разделы 7–9) */
 :root{
-  --paper:#FFFFFF; --ink:#121214; --muted:#6B6B73; --hair:#DCDCE1; --tint:#F3F3F5;
-  --accent:#2238D0; --accent-ink:#FFFFFF; --accent-tint:#E9ECFC;
-  --ok:#17784A; --ok-soft:#E4F2EA; --warn:#9A5600; --shade:rgba(18,18,20,.55); --line:var(--hair);
-  --f-display:"Tenor Sans","Golos Text",Georgia,serif;
-  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --paper:#FAF6F3; --ink:#2A1E19; --muted:#6E5248; --hair:#E6D8D1; --tint:#F8ECE7; --surface:#EBCEC6;
+  --accent:#6B4535; --accent-ink:#FFFFFF; --accent-tint:#F8ECE7;
+  --ok:#4E7461; --ok-soft:#E3EDE6; --warn:#9A5600; --shade:rgba(42,30,25,.5); --line:var(--hair);
+  --f-display:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 :root[data-ritm="dark"]{
-  --paper:#0F0F12; --ink:#EDEDF0; --muted:#9C9CA6; --hair:#2D2D35; --tint:#18181D;
-  --accent:#8C9AFF; --accent-ink:#0F0F12; --accent-tint:#1D2142;
-  --ok:#5FD39A; --ok-soft:#143024; --warn:#F0A848; --shade:rgba(0,0,0,.65); color-scheme:dark}
+  --paper:#17110F; --ink:#F3E9E4; --muted:#B9A39A; --hair:#3A2B26; --tint:#3A2B26; --surface:#2A201C;
+  --accent:#E2B5A3; --accent-ink:#17110F; --accent-tint:#3A2B26;
+  --ok:#9CC4AE; --ok-soft:#22312A; --warn:#F0A848; --shade:rgba(0,0,0,.65); color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--paper);color:var(--ink);font:15px/1.55 var(--f-body)}
@@ -436,9 +436,9 @@ h3,.dbody section > h3{text-transform:none;letter-spacing:0;font-size:1rem;font-
 .acchead:focus-visible{outline:2px solid var(--accent);outline-offset:-2px;border-radius:16px}
 
 /* фильтр цены: два ползунка */
-.price{grid-column:1/-1;display:grid;gap:8px;max-width:520px}
-.phead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.82rem;font-weight:500;color:var(--muted)}
-.phead b{color:var(--ink);font-size:.98rem;font-weight:600}
+.pf{grid-column:1/-1;display:grid;gap:8px;max-width:520px}
+.pfh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.82rem;font-weight:500;color:var(--muted)}
+.pfh b{color:var(--ink);font-size:.98rem;font-weight:600}
 .range{position:relative;height:28px}
 .range::before,.range::after{content:"";position:absolute;top:50%;height:4px;margin-top:-2px;border-radius:2px}
 .range::before{left:0;right:0;background:var(--hair)}
@@ -450,12 +450,70 @@ h3,.dbody section > h3{text-transform:none;letter-spacing:0;font-size:1rem;font-
 .range input::-moz-range-thumb{pointer-events:auto;width:20px;height:20px;border-radius:50%;background:var(--paper);border:2px solid var(--accent);cursor:grab}
 .range input:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 4px var(--accent-tint)}
 .pends{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+
+/* ===== Камертон: айдентика ===== */
+body{font-family:var(--f-body);font-size:16px}
+h1,h2,h3,.who b,.day b,.date b,.kpi b,.price,.note > b,.phead h2{font-weight:600;letter-spacing:-.01em}
+.intro h1{letter-spacing:-.02em}
+.mono{font-family:var(--f-body);font-variant-numeric:tabular-nums}
+.logo{font-family:var(--f-body);font-weight:500;font-size:1rem;letter-spacing:.16em;align-items:center;color:var(--ink)}
+.logo .mark{width:24px;height:24px;color:var(--accent);flex:none}
+.logo small{letter-spacing:0;font-weight:400}
+.btn{border-radius:12px}
+.btn.primary{text-transform:uppercase;letter-spacing:.12em;font-weight:500;font-size:.85rem}
+.btn.sm.primary{font-size:.75rem}
+.btn.wide{width:100%;padding:14px 16px}
+.role,.role button,.themebtn,.hint,.search input,.slot,.days,.day,.map,.acc,.toast{border-radius:12px}
+.day{border-radius:0}.days{overflow:hidden}
+.chip.on{border-bottom-color:var(--accent);color:var(--ink)}
+.ava{font-family:var(--f-body);font-weight:500}
+/* знак камертона */
+.mark{display:inline-block;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* карточка мастера */
+.grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:var(--surface);border-radius:20px;padding:18px;gap:12px;cursor:pointer;justify-content:flex-start}
+.card .who{align-items:center}
+.card .ava{width:56px;height:56px;font-size:1.05rem}
+.cname{all:unset;cursor:pointer;font-weight:600;font-size:1.1rem;line-height:1.25}
+.cname:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.card:hover .cname{text-decoration:underline;text-underline-offset:4px}
+.appr{margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.95rem;line-height:1.45}
+.ptags{display:flex;flex-wrap:wrap;gap:6px}
+.ptag{background:var(--tint);border-radius:999px;padding:5px 12px;font-size:.82rem;color:var(--ink)}
+.cfoot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.match{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.match .mark{width:22px;height:22px}
+.match small{font-weight:500;color:var(--muted)}
+.ver{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:600;color:var(--ok);background:var(--ok-soft);border-radius:999px;padding:2px 8px;vertical-align:2px;margin-left:6px;white-space:nowrap}
+.why{display:grid;gap:6px;background:var(--surface);border-radius:20px;padding:16px 18px}
+.why ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.why li{background:var(--tint);border-radius:999px;padding:5px 12px;font-size:.85rem}
+.why li::after{content:" ✓";color:var(--ok)}
+.lowmore{text-align:center;padding:16px 0}
+/* настройка */
+.tune{max-width:560px;margin:0 auto;display:grid;gap:20px;padding-block:8px 24px}
+.tprog{height:3px;background:var(--hair);border-radius:2px;overflow:hidden}
+.tprog i{display:block;height:100%;background:var(--accent);border-radius:2px}
+.tstep{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--muted)}
+.tune h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.15}
+.topts{display:grid;gap:10px}
+.topt{border:1px solid var(--hair);background:var(--paper);border-radius:14px;padding:16px 18px;text-align:left;font-size:1rem;color:var(--ink)}
+.topt:hover{border-color:var(--accent);background:var(--tint)}
+.topt.on{border-color:var(--accent);background:var(--tint);box-shadow:inset 0 0 0 1px var(--accent)}
+.tune .lead{color:var(--muted);margin:0}
+.tdone{background:var(--surface);border-radius:20px;padding:28px 22px;display:grid;gap:14px;text-align:center;justify-items:center}
+.tdone .mark{width:44px;height:44px;color:var(--accent)}
+.tdone h1{margin:0}
+@media (max-width:640px){
+  .card{padding:16px}
+  .grid{gap:14px}
+}
 </style>
 </head>
 <body>
 
 <header class="top"><div class="wrap">
-  <div class="logo"><i></i>Камертон <small>Москва · демо</small></div>
+  <div class="logo"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5V12a4 4 0 0 0 8 0V2.5"/><path d="M12 16v5.5"/></svg>КАМЕРТОН <small>Москва · демо</small></div>
   <nav class="nav" id="nav"></nav>
   <button class="themebtn" id="themebtn" data-act="theme" aria-label="Переключить тему"></button>
   <div class="role" role="group" aria-label="Режим">
@@ -551,6 +609,8 @@ const MASTERS=[
   about:"Мужской маникюр, гигиенический педикюр, SPA-уход для рук.",
   svc:[["Мужской маникюр",1800,45],["Маникюр без покрытия",1600,60],["SPA-уход для рук",1200,30]]},
 ];
+// подход мастера и теги вместо звёзд (бренд-гайд, раздел 9)
+const APPR={"anna": {"appr": "Работаю без спешки и объясняю, как продлить покрытие. Люблю аккуратный нюд и короткую длину.", "tags": ["спокойный темп", "объясняет уход", "натуральный результат"]}, "liza": {"appr": "Подбираю форму бровей по лицу, а не по моде. Делаю так, чтобы утром ничего не приходилось подправлять.", "tags": ["натуральный результат", "объясняет уход", "без разговоров"]}, "marat": {"appr": "Стригу быстро и точно, без долгих консультаций. Подскажу, как уложить дома за пять минут.", "tags": ["точно в срок", "можно поговорить", "работает с детьми"]}, "olga": {"appr": "Сначала разговор о цвете при дневном свете, потом окрашивание. Беру сложные случаи и не тороплю.", "tags": ["спокойный темп", "смелые эксперименты", "объясняет уход"]}, "dina": {"appr": "Макияж, который держится до утра и хорошо выглядит на фото. Приезжаю заранее и работаю тихо.", "tags": ["без разговоров", "точно в срок", "натуральный результат"]}, "vera": {"appr": "Сначала смотрю кожу, потом предлагаю процедуру. Рассказываю, что делать дома, чтобы результат держался.", "tags": ["объясняет уход", "спокойный темп", "натуральный результат"]}, "kira": {"appr": "Френч и минимализм, тонкое покрытие. Люблю поговорить, но могу и помолчать, если вы устали.", "tags": ["можно поговорить", "натуральный результат", "точно в срок"]}, "timur": {"appr": "Работаю с офисной спиной и шеей. Тишина, тёплый кабинет, всё по делу.", "tags": ["без разговоров", "спокойный темп", "объясняет уход"]}, "sonya": {"appr": "Подбираю изгиб и длину под форму глаз, чтобы ресницы выглядели своими. Можно подремать.", "tags": ["без разговоров", "натуральный результат", "спокойный темп"]}, "polina": {"appr": "Учу краситься самостоятельно, а не только делаю образ. Объясняю каждый шаг и пишу список средств.", "tags": ["объясняет уход", "можно поговорить", "смелые эксперименты"]}, "alisa": {"appr": "Подбираю волосы по цвету и структуре так, что стык не видно. Процедуры долгие, поэтому никуда не спешим.", "tags": ["спокойный темп", "натуральный результат", "объясняет уход"]}, "eva": {"appr": "Перманент, который выглядит как ваш собственный макияж. Сначала эскиз, вы утверждаете, потом работаем.", "tags": ["натуральный результат", "спокойный темп", "объясняет уход"]}, "nika": {"appr": "Вросший ноготь, трещины, чувствительная кожа. Аккуратно и без боли, объясняю домашний уход.", "tags": ["объясняет уход", "спокойный темп", "работает с детьми"]}, "zara": {"appr": "Коррекция нитью за двадцать минут, почти без боли. Удобно, если заходите в обед.", "tags": ["точно в срок", "можно поговорить", "натуральный результат"]}, "denis": {"appr": "Чёткие формы, горячее полотенце, разговоры о жизни по желанию. Классический барбершоп.", "tags": ["можно поговорить", "точно в срок", "смелые эксперименты"]}, "mila": {"appr": "Предлагаю только то, что нужно вашей коже, и честно говорю, когда процедура не нужна.", "tags": ["объясняет уход", "спокойный темп", "без разговоров"]}, "oleg": {"appr": "Сначала разбираемся, откуда боль, потом работаем. Спокойно, медленно, с объяснениями.", "tags": ["спокойный темп", "объясняет уход", "без разговоров"]}, "yana": {"appr": "Приезжаю со столом и маслами. Тихая музыка, никакой спешки, после сеанса можно сразу отдыхать.", "tags": ["без разговоров", "спокойный темп", "точно в срок"]}, "lera": {"appr": "Причёски, которые держатся всю свадьбу. Люблю необычные формы и всегда делаю репетицию.", "tags": ["смелые эксперименты", "можно поговорить", "точно в срок"]}, "vika": {"appr": "От нюда до ярких втирок и ручной росписи. Покажу варианты, и вместе выберем смелое.", "tags": ["смелые эксперименты", "можно поговорить", "объясняет уход"]}, "rita": {"appr": "Ресницы на выезде, пока дети спят или вы смотрите сериал. Тихо и аккуратно.", "tags": ["работает с детьми", "без разговоров", "натуральный результат"]}, "sasha": {"appr": "Скульптурный массаж и уход для чувствительной кожи. Медленно, с паузами, объясняю домашний уход.", "tags": ["спокойный темп", "объясняет уход", "натуральный результат"]}, "igor": {"appr": "Исправляю цвет после других мастеров. Беру одного сложного клиента в день, и мы не торопимся.", "tags": ["смелые эксперименты", "спокойный темп", "объясняет уход"]}, "lena": {"appr": "Мужской и женский маникюр без лишнего: быстро, чисто, успеваете за обеденный перерыв.", "tags": ["точно в срок", "натуральный результат", "без разговоров"]}};
 const NAMES=["Мария К.","Ирина С.","Алина Т.","Екатерина Л.","Дарья М.","Наталья П.","Юлия Р.","Ксения В.","Анастасия Г.","Олег Н."];
 const TEXTS=[
  "Всё аккуратно и вовремя, кабинет чистый, инструменты вскрывали при мне.",
@@ -563,6 +623,7 @@ const TEXTS=[
 
 /* детерминированный генератор */
 function rng(seed){let h=2166136261;for(const c of seed)h=Math.imul(h^c.charCodeAt(0),16777619);return()=>{h^=h<<13;h^=h>>>17;h^=h<<5;return((h>>>0)%10000)/10000}}
+MASTERS.forEach(m=>{Object.assign(m,APPR[m.id]);const r=rng("km"+m.id);m.dist=(0.4+r()*8.6).toFixed(1).replace(".",",")});
 const TODAY=new Date();TODAY.setHours(0,0,0,0);
 const dayDate=i=>{const d=new Date(TODAY);d.setDate(d.getDate()+i);return d};
 const fmtDay=i=>{const d=dayDate(i);return `${WD[d.getDay()]}, ${d.getDate()} ${MON[d.getMonth()]}`};
@@ -577,7 +638,7 @@ function seedReviews(m){const r=rng("rv"+m.id);const n=4+Math.floor(r()*5);const
 
 /* ---------- состояние ---------- */
 function freshState(){
-  const s={role:"client",tab:"search",mtab:"bookings",f:{cat:"all",metro:"all",place:"all",priv:false,q:"",sort:"rating"},
+  const s={role:"client",tab:"search",mtab:"bookings",f:{cat:"all",metro:"all",place:"all",priv:false,q:"",sort:"match"},tuned:false,tuneStep:0,tuneAns:[],
     open:null,pDay:0,pSvc:0,pSlot:null,confirming:false,reviewFor:null,rStars:5,cancelId:null,
     chatWith:null,mChatWith:"me",plan:"boost",resched:null,sDay:0,showF:false,hintSeen:false,
     reviews:{},slots:{},bookings:[],chats:{},mChats:{},nextId:1};
@@ -613,6 +674,27 @@ function daySlots(mid,day){
   return o;
 }
 function nearest(mid){for(let d=0;d<7;d++){const o=daySlots(mid,d);const h=HOURS.find(h=>o[h]==="free");if(h!=null)return{d,h}}return null}
+/* настройка и совпадение */
+const MARK=`<svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5V12a4 4 0 0 0 8 0V2.5"/><path d="M12 16v5.5"/></svg>`;
+const TUNE=[
+ {q:"Что хотите сделать?",k:"cat",opts:[["nails","Маникюр или педикюр"],["hair","Стрижку или окрашивание"],["brows","Брови или ресницы"],["makeup","Макияж или причёску"],["cosm","Уход за лицом"],["massage","Массаж"],["","Пока смотрю всё"]]},
+ {q:"Какой темп визита вам ближе?",opts:[["спокойный темп","Спокойно, без спешки"],["точно в срок","Быстро и точно по времени"]]},
+ {q:"Разговаривать во время процедуры?",opts:[["без разговоров","Лучше в тишине"],["можно поговорить","С удовольствием поговорю"],["","Как получится"]]},
+ {q:"Какой результат хотите?",opts:[["натуральный результат","Естественный, чтобы было похоже на меня"],["смелые эксперименты","Смелый, хочется нового"]]},
+ {q:"Важно, чтобы мастер объяснял уход?",opts:[["объясняет уход","Да, хочу понимать, что делать дома"],["","Не обязательно"]]},
+ {q:"Где удобнее?",k:"place",opts:[["Частный кабинет","У мастера в кабинете"],["Салон","В салоне"],["Выезд на дом","Пусть мастер приедет"],["any","Неважно"]]}];
+const OPP={"без разговоров":"можно поговорить","можно поговорить":"без разговоров","натуральный результат":"смелые эксперименты","смелые эксперименты":"натуральный результат","спокойный темп":"точно в срок","точно в срок":"спокойный темп"};
+function tuneProfile(){const a=S.tuneAns||[];const t={cat:null,place:null,tags:[]};
+  TUNE.forEach((q,i)=>{const v=a[i];if(v==null||v==="")return;if(q.k==="cat")t.cat=v;else if(q.k==="place"){if(v!=="any")t.place=v}else t.tags.push(v)});return t}
+function match(m){const t=tuneProfile(),r=rng("mt"+m.id);let s=66+Math.floor(r()*10);
+  t.tags.forEach(x=>{if(m.tags.includes(x))s+=7;else if(m.tags.includes(OPP[x]))s-=9});
+  if(t.cat)s+=m.cat===t.cat?8:-16;if(t.place)s+=m.place===t.place?4:-2;
+  return Math.max(40,Math.min(98,s))}
+function whyMatch(m){const t=tuneProfile(),out=t.tags.filter(x=>m.tags.includes(x));
+  if(t.cat&&m.cat===t.cat)out.unshift((CATS.find(c=>c[0]===m.cat)||["",""])[1].toLowerCase());
+  if(t.place&&m.place===t.place)out.push(m.place.toLowerCase());return out}
+function matchBadge(m,big){const n=match(m);return n<70?"":`<span class="match">${MARK}Совпадение ${n}%${n>=90&&big?` <small>· в унисон</small>`:""}</span>`}
+const VER=`<span class="ver" title="Профиль прошёл модерацию">✓ Сверено</span>`;
 function rating(mid){const r=S.reviews[mid];return r.length?(r.reduce((a,x)=>a+x.stars,0)/r.length):0}
 const ALLP=()=>MASTERS.flatMap(m=>m.svc.map(x=>x[1]).filter(x=>x>0));
 // шкала цены неравномерная: внизу шаг 500 ₽, вверху крупнее, чтобы дорогие услуги не сжимали дешёвые
@@ -668,63 +750,82 @@ function viewSearch(){
     &&(!pRange(f).on||m.svc.some(x=>x[1]>0&&x[1]>=pRange(f).a&&x[1]<=pRange(f).b))&&(!f.q||(m.name+" "+m.spec+" "+m.svc.map(s=>s[0]).join(" ")).toLowerCase().includes(f.q.toLowerCase())));
   const minP=m=>Math.min(...m.svc.filter(s=>s[1]>0).map(s=>s[1]));
   const nk=m=>{const n=nearest(m.id);return n?n.d*100+n.h:9999};
-  list.sort((a,b)=>f.sort==="price"?minP(a)-minP(b):f.sort==="soon"?nk(a)-nk(b):rating(b.id)-rating(a.id));
-  // продвижение поднимает выше, но только внутри отобранных и при сортировке по рейтингу
-  if(f.sort==="rating")list.sort((a,b)=>(b.promo?1:0)-(a.promo?1:0));
-  return `${S.hintSeen?"":`<div class="hint" role="note"><span><b>Демо.</b> Выберите мастера и запишитесь. Вкладка «Мастер» вверху открывает кабинет.</span><button class="btn ghost sm" data-act="hint-ok">Понятно</button></div>`}
+  const sortBy=f.sort==="price"||f.sort==="soon"?f.sort:"match";
+  // по умолчанию — по совпадению; продвижение решает только при равном совпадении
+  list.sort((a,b)=>sortBy==="price"?minP(a)-minP(b):sortBy==="soon"?nk(a)-nk(b):(match(b)-match(a))||((b.promo?1:0)-(a.promo?1:0)));
+  const low=list.filter(m=>match(m)<70);if(!S.showLow)list=list.filter(m=>match(m)>=70);
+  if(!S.tuned)return viewTune();
+  return `${S.hintSeen?"":`<div class="hint" role="note"><span><b>Демо.</b> Выберите мастера и запишитесь. Вкладка «Мастер» вверху открывает кабинет мастера.</span><button class="btn ghost sm" data-act="hint-ok">Понятно</button></div>`}
   <section class="intro">
-    <div><p class="eyebrow">Москва · ${MASTERS.length} ${(n=>n%10===1&&n%100!==11?"мастер прошёл":n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?"мастера прошли":"мастеров прошли")(MASTERS.length)} отбор · ${MASTERS.reduce((a,m)=>a+S.reviews[m.id].length,0)} проверенных отзывов</p>
-    <h1>Найдите <em>своего</em> мастера рядом с&nbsp;домом</h1>
-    <p class="lead">Маникюр, брови, стрижки, макияж и уход у проверенных частных мастеров. Работы, настоящие отзывы и то, где проходит визит, видны до записи, а записаться можно в один шаг.</p></div>
+    <div><p class="eyebrow">Москва · ${MASTERS.length} ${(n=>n%10===1&&n%100!==11?"мастер сверен":"мастера сверены")(MASTERS.length)} · подбор по совпадению, без рейтингов</p>
+    <h1>Мастер, с которым вы звучите <em>в&nbsp;унисон</em></h1>
+    <p class="lead">Не лучший мастер в городе, а ваш. Камертон подбирает частных мастеров по совпадению подхода: темп, разговоры, результат. Работы, отзывы и место визита видны до записи.</p></div>
     <ol class="how">
-      <li>Выберите услугу и станцию метро, куда удобно приехать</li>
-      <li>Посмотрите работы и отзывы тех, кто был на приёме</li>
-      <li>Запишитесь в свободное окно. Напомним за сутки до визита</li></ol>
+      <li>Настройка: шесть коротких вопросов о том, как вам комфортно</li>
+      <li>Совпадение: видно, с кем вы на одной ноте и почему</li>
+      <li>Запись в свободное окно. Напомним за сутки до визита</li></ol>
   </section>
   <section class="filters ${S.showF?"open":""}">
     <label class="search"><span class="sr">Поиск</span><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="q" type="search" placeholder="Мастер или услуга" value="${esc(f.q)}" data-in="q"></label>
     <div class="cats">${CATS.map(([k,l])=>`<button class="chip ${f.cat===k?"on":""}" data-act="cat" data-v="${k}">${l}</button>`).join("")}</div>
-${(()=>{const n=(f.metro!=="all")+(f.place!=="all")+(f.priv?1:0)+(f.sort!=="rating")+(pRange(f).on?1:0);return `<button class="btn sm ftoggle" data-act="ftoggle" aria-expanded="${S.showF?"true":"false"}">${S.showF?"Скрыть фильтры":"Фильтры"}${n?` · ${n}`:""}</button>`})()}
+${(()=>{const n=(f.metro!=="all")+(f.place!=="all")+(f.priv?1:0)+(f.sort==="soon"||f.sort==="price"?1:0)+(pRange(f).on?1:0);return `<button class="btn sm ftoggle" data-act="ftoggle" aria-expanded="${S.showF?"true":"false"}">${S.showF?"Скрыть фильтры":"Фильтры"}${n?` · ${n}`:""}</button>`})()}
     <div class="frow">
       <label class="field">Метро<select id="metro" data-in="metro"><option value="all">Любое</option>${metros.map(x=>`<option ${f.metro===x?"selected":""}>${x}</option>`).join("")}</select></label>
       <label class="field">Где проходит визит<select id="place" data-in="place"><option value="all">Неважно</option>${PLACES.map(x=>`<option ${f.place===x?"selected":""}>${x}</option>`).join("")}</select></label>
       <label class="field">Сортировка<select id="sort" data-in="sort">
-        <option value="rating" ${f.sort==="rating"?"selected":""}>По рейтингу</option>
+        <option value="match" ${f.sort!=="soon"&&f.sort!=="price"?"selected":""}>По совпадению</option>
         <option value="soon" ${f.sort==="soon"?"selected":""}>Ближайшее окно</option>
         <option value="price" ${f.sort==="price"?"selected":""}>Сначала дешевле</option></select></label>
       <label class="check"><input id="priv" type="checkbox" data-in="priv" ${f.priv?"checked":""}> Только частные</label>
-      ${(()=>{const r=pRange(f),pc=pPc;return `<div class="price"><div class="phead"><span>Цена за услугу</span><b id="pval">${pLabel(r)}</b></div>
+      ${(()=>{const r=pRange(f),pc=pPc;return `<div class="pf"><div class="pfh"><span>Цена за услугу</span><b id="pval">${pLabel(r)}</b></div>
         <div class="range" id="prange" style="--a:${pc(r.a)}%;--b:${pc(r.b)}%"><input type="range" min="0" max="${PSTOPS.length-1}" step="1" value="${pIdx(r.a)}" data-price="pmin" aria-label="Цена от"><input type="range" min="0" max="${PSTOPS.length-1}" step="1" value="${pIdx(r.b)}" data-price="pmax" aria-label="Цена до"></div>
         <div class="pends"><span>${pr(r.lo)}</span><span>${pr(r.hi)}</span></div></div>`})()}
     </div>
   </section>
-  <div class="resinfo"><span class="muted small">Найдено мастеров: <b class="mono">${list.length}</b></span>
+  <div class="resinfo"><span class="muted small">Совпадают с вами: <b class="mono">${list.length}</b> · <button class="btn ghost sm" data-act="retune">Настроиться заново</button></span>
     ${f.cat!=="all"||f.metro!=="all"||f.place!=="all"||f.priv||f.q||pRange(f).on?`<button class="btn ghost sm" data-act="clearf">Сбросить фильтры</button>`:""}</div>
-  ${list.length?`<div class="grid">${list.map(card).join("")}</div>`:`<div class="panel empty">Под эти фильтры мастеров нет. Попробуйте другую станцию метро или уберите «Только частные».</div>`}`;
+  ${list.length?`<div class="grid">${list.map(card).join("")}</div>`:`<div class="panel empty">Пока никто не совпал больше чем на 70%. Расширьте район или уберите одно пожелание.</div>`}
+  ${low.length&&!S.showLow?`<div class="lowmore"><button class="btn sm" data-act="showlow">Ещё ${low.length} совпадают меньше чем на 70% · показать</button></div>`:""}`;
 }
 function card(m){
-  const r=rating(m.id),n=nearest(m.id),minP=Math.min(...m.svc.filter(s=>s[1]>0).map(s=>s[1]));
-  return `<button class="card" data-act="open" data-v="${m.id}">
-    <div class="pics">${art(m.cat,m.id+"1")}${art(m.cat,m.id+"2")}${art(m.cat,m.id+"3")}</div>
-    <div class="body">
-      <div class="who">${ava(m.name,m.hue)}<div><b>${m.name}</b><span class="muted small">${m.spec}</span></div></div>
-      <div class="meta"><span><span class="star">★</span><b class="mono">${r.toFixed(1)}</b> · ${S.reviews[m.id].length} отз.</span><span>м. ${m.metro}</span></div>
-      ${m.promo?`<div><span class="tag acc">Продвигается</span></div>`:""}
-      <div class="cardfoot"><span>от <b class="mono">${rub(minP)}</b></span><span class="next">${nearestLabel(n)}</span></div>
-    </div></button>`;
+  const n=nearest(m.id),minP=Math.min(...m.svc.filter(s=>s[1]>0).map(s=>s[1]));
+  return `<article class="card" data-act="open" data-v="${m.id}">
+    <div class="who">${ava(m.name,m.hue)}<div><button class="cname" data-act="open" data-v="${m.id}">${m.name}</button>${VER}<span class="muted small" style="display:block">${m.spec} · ${m.dist} км</span></div></div>
+    <p class="appr">${m.appr}</p>
+    <div class="ptags">${m.tags.map(t=>`<span class="ptag">${t}</span>`).join("")}${m.promo?`<span class="ptag" style="background:none;color:var(--muted);padding-inline:4px">продвигается</span>`:""}</div>
+    <div class="cfoot">${matchBadge(m)||`<span class="muted small">Совпадение ниже 70%</span>`}<span class="muted small">от ${rub(minP)} · ${nearestLabel(n)}</span></div>
+    <button class="btn primary wide" data-act="openbook" data-v="${m.id}">Записаться</button>
+  </article>`;
+}
+
+function viewTune(){
+  const i=S.tuneStep||0,a=S.tuneAns||[];
+  if(i>=TUNE.length){const k=MASTERS.filter(m=>match(m)>=80).length;
+    return `<section class="tune"><div class="tdone">${MARK}<h1>Настроено</h1><p class="lead">Совпадение от 80%: ${k} ${k%10===1&&k%100!==11?"мастер":k%10>=2&&k%10<=4&&(k%100<10||k%100>=20)?"мастера":"мастеров"}. У каждого видно, почему вы совпали.</p>
+      <button class="btn primary wide" data-act="tune-done">Смотреть подборку</button><button class="btn ghost sm" data-act="tune-back">Изменить ответы</button></div></section>`}
+  const q=TUNE[i];
+  return `<section class="tune" aria-label="Настройка">
+    <div class="tprog" role="progressbar" aria-valuemin="0" aria-valuemax="${TUNE.length}" aria-valuenow="${i}"><i style="width:${(i/TUNE.length*100).toFixed(0)}%"></i></div>
+    <div class="tstep"><span>Настройка · ${i+1} из ${TUNE.length}</span>${i?`<button class="btn ghost sm" data-act="tune-back">← Назад</button>`:""}</div>
+    <h1>${q.q}</h1>
+    ${i===0?`<p class="lead">Две минуты вместо десяти пробных визитов. По ответам подберём мастеров, с которыми вы совпадаете.</p>`:""}
+    <div class="topts">${q.opts.map(([v,l])=>`<button class="topt ${a[i]===v?"on":""}" data-act="tune" data-v="${esc(v)}">${l}</button>`).join("")}</div>
+    <button class="btn ghost sm" data-act="tune-skip" style="justify-self:start">Пропустить настройку</button>
+  </section>`;
 }
 
 function viewProfile(){
-  const m=M(S.open),r=rating(m.id),slots=daySlots(m.id,S.pDay),svc=m.svc[S.pSvc];
+  const m=M(S.open),slots=daySlots(m.id,S.pDay),svc=m.svc[S.pSvc],why=whyMatch(m);
   const free=HOURS.filter(h=>slots[h]==="free");
   const revs=S.reviews[m.id];
   return `<div class="shade" data-act="close-bg"><aside class="drawer" role="dialog" aria-label="${m.name}">
    <div class="dhead"><button class="btn ghost sm back" data-act="close">← Назад</button><span class="dtitle">${S.resched?"Перенос записи":"Профиль мастера"}</span></div>
    <div class="dbody">
     <div class="phead">${ava(m.name,m.hue)}<div>
-      <h2>${m.name}</h2><div class="muted">${m.spec} · опыт ${m.exp} ${m.exp<5?"года":"лет"}</div>
-      <div class="meta" style="margin-top:6px"><span><span class="star">★</span><b class="mono">${r.toFixed(2)}</b> по ${revs.length} проверенным отзывам</span><span>${m.salon?`работает в салоне «${m.salon}»`:"частный мастер"}</span></div></div>
+      <h2>${m.name}${VER}</h2><div class="muted">${m.spec} · ${m.dist} км · опыт ${m.exp} ${m.exp<5?"года":"лет"}</div>
+      <div class="meta" style="margin-top:8px">${matchBadge(m,1)}<span>${m.salon?`работает в салоне «${m.salon}»`:"частный мастер"}</span></div></div>
       <button class="btn ghost sm" data-act="chat-open" data-v="${m.id}">Написать мастеру</button></div>
+    <div class="why"><b>${why.length?"Почему совпали":"Подход мастера"}</b><p style="margin:0">${m.appr}</p><ul>${(why.length?why:m.tags).map(x=>`<li>${x}</li>`).join("")}</ul></div>
     <section><h3 style="margin-bottom:10px">Работы</h3><div class="gallery">${[1,2,3,4,5,6].map(i=>art(m.cat,m.id+i,i===1?"до / после":"")).join("")}</div></section>
     <section class="stack acc ${S.bookOpen?"open":""}" id="booking"><button class="acchead" data-act="booktoggle" aria-expanded="${S.bookOpen?"true":"false"}"><span><b>${S.resched?"Выберите новое время":"Запись"}</b><span class="small muted">Ближайшее окно ${nearestLabel(nearest(m.id))}</span></span><span class="chev" aria-hidden="true">${S.bookOpen?"Свернуть":"Выбрать время"}</span></button>
       ${S.bookOpen?`
@@ -734,13 +835,13 @@ function viewProfile(){
       ${free.length?`<div class="slots">${free.map(h=>`<button class="slot ${S.pSlot===h?"on":""}" data-act="slot" data-v="${h}">${h}:00</button>`).join("")}</div>`:`<div class="muted small">На этот день свободных окон нет — выберите другой день.</div>`}`:""}
     </section>
     <p style="margin:0;max-width:65ch">${m.about}</p>
-    <div class="selbox"><b>Отбор пройден</b><span class="muted">Портфолио проверено, опыт от 2 лет, рейтинг не ниже 4,5.${m.promo?" Мастер оплачивает продвижение, оно не заменяет отбор.":""}</span></div>
+    <div class="selbox"><b>Сверено</b><span class="muted">Настоящее фото, не меньше 6 работ, подход описан, телефон и документ подтверждены.${m.promo?" Мастер оплачивает продвижение, оно не влияет на совпадение.":""}</span></div>
     <section><h3 style="margin-bottom:10px">Где принимает</h3>
       <div class="map"><span>м. ${m.metro} · ${m.addr}</span></div>
       <p class="small muted" style="margin:6px 0 0">${m.place}. Фото места проверены при модерации.</p></section>
     <section><h3 style="margin-bottom:4px">Отзывы</h3><p class="small muted" style="margin:0 0 8px">Только после визитов, записанных через Камертон.</p>
       ${revs.slice(0,S.allRev?99:3).map(x=>`<div class="review"><div class="rhead"><span><b>${esc(x.author)}</b></span><span class="muted">${x.ago===0?"сегодня":x.ago+" дн. назад"}</span></div>
-      <div><span class="star">${"★".repeat(x.stars)}</span><span style="color:var(--line)">${"★".repeat(5-x.stars)}</span> <span class="small muted">${esc(x.svc)}</span></div><p>${esc(x.text)}</p></div>`).join("")}${revs.length>3&&!S.allRev?`<button class="btn sm" data-act="allrev">Все отзывы · ${revs.length}</button>`:""}</section>
+      <div class="small muted">${esc(x.svc)}</div><p>${esc(x.text)}</p></div>`).join("")}${revs.length>3&&!S.allRev?`<button class="btn sm" data-act="allrev">Все отзывы · ${revs.length}</button>`:""}</section>
    </div>
    <div class="dfoot"><div class="bookbar">${!S.bookOpen?`<span class="sum small"><b>${nearestLabel(nearest(m.id))}</b>ближайшее свободное окно</span><button class="btn primary" data-act="bookopen">Выбрать время</button>`:S.pSlot==null?`<span class="muted small">Выберите время, чтобы записаться</span><button class="btn primary" disabled>Записаться</button>`
      :`<span class="sum small"><b>${fmtDay(S.pDay)}, ${S.pSlot}:00 · ${rub(svc[1])}</b>${svc[0]}</span><button class="btn primary" data-act="book">${S.resched?"Перенести сюда":"Записаться"}</button>`}</div></div>
@@ -775,8 +876,7 @@ function viewBookings(){
 }
 function reviewForm(b){const m=M(b.mid);
   return `<form class="panel note" data-form="review" data-v="${b.id}"><b>Отзыв о визите к ${m.name}</b>
-    <div class="stars">${[1,2,3,4,5].map(i=>`<button type="button" class="${i<=S.rStars?"on":""}" data-act="stars" data-v="${i}" aria-label="${i} из 5">★</button>`).join("")}</div>
-    <label class="field">Что понравилось или нет<textarea id="rtext" rows="3" required placeholder="Например: результат, чистота, пунктуальность"></textarea></label>
+    <label class="field">Как прошёл визит, совпали ли вы<textarea id="rtext" rows="3" required placeholder="Например: темп, результат, понимает ли с полуслова"></textarea></label>
     <div style="display:flex;gap:8px"><button class="btn primary sm">Опубликовать отзыв</button><button type="button" class="btn sm" data-act="review-x">Отмена</button></div>
     <span class="small muted">Отзыв получит отметку «визит подтверждён»: запись ${fmtDay(b.day)} прошла через платформу.</span></form>`}
 
@@ -832,13 +932,15 @@ function viewMaster(){
       <h2 style="margin-top:12px">Где проходит визит</h2>
       <label class="field">Где вы принимаете<select id="mplace" data-mp="place">${PLACES.map(p=>`<option ${m.place===p?"selected":""}>${p}</option>`).join("")}</select></label>
       <label class="field">Адрес<input id="maddr" value="${esc(m.addr)}" data-mp="addr"></label>
+      <label class="field">Ваш подход в двух строках<textarea id="mappr" rows="2" data-mp="appr">${esc(m.appr)}</textarea></label>
+      <span class="small muted">Опишите свою манеру работы, а клиентов подберём мы. Теги: ${m.tags.join(", ")}.</span>
       <label class="field">О себе<textarea id="mabout" rows="3" data-mp="about">${esc(m.about)}</textarea></label>
       <span class="small muted">Изменения сразу видны клиентам — проверьте во вкладке «Клиент».</span>
       <h2 style="margin-top:12px">Ссылка на запись</h2>
       <span class="small muted">Поставьте её в Telegram, VK или Instagram: постоянные клиенты будут записываться сами, без переписки и без комиссии.</span>
       <div class="linkbox"><code id="mlink">[домен]/anna-koroleva</code><button class="btn sm" data-act="copylink" data-v="[домен]/anna-koroleva">Скопировать</button></div></div>
-      <aside class="stack"><div class="panel note"><b>Статус профиля</b><span class="tag ok" style="justify-self:start">Отбор пройден</span>
-        <span class="small muted">Портфолио: 8 работ · Опыт: ${m.exp} лет · Рейтинг ${rating("anna").toFixed(2)} (порог 4,5)</span></div>
+      <aside class="stack"><div class="panel note"><b>Статус профиля</b><span class="tag ok" style="justify-self:start">Сверено</span>
+        <span class="small muted">Настоящее фото, 8 работ, подход описан, телефон и документ подтверждены. Без отметки «Сверено» профиль не попадает в подбор.</span></div>
         <div class="panel note"><b>Работы</b><div class="gallery" style="grid-template-columns:repeat(3,1fr)">${[1,2,3,4,5,6].map(i=>art(m.cat,"anna"+i)).join("")}</div>
         <button class="btn sm" data-act="upload" style="justify-self:start">Загрузить фото</button></div>
         <div class="panel note"><b>Клиенты остаются с вами</b><span class="small muted">Профиль и отзывы принадлежат мастеру, а не салону. При смене места работы просто поменяйте адрес.</span></div></aside></div>`;
@@ -856,14 +958,14 @@ function viewMaster(){
         <span class="small muted">Дальше фиксированная цена в месяц. Её уточняем с мастерами на пилоте.</span>
         <span class="tag ok" style="justify-self:start">Ваш тариф · пробный период</span></div>
       <div class="panel plan ${boost?"cur":""}"><h3>Продвижение</h3><div class="price">+ опция</div>
-        <ul><li>Выше в каталоге по своей станции метро</li><li>Метка «Продвигается» видна клиенту</li><li>Только для мастеров, прошедших отбор, с рейтингом от 4,5</li></ul>
+        <ul><li>Выше среди мастеров с тем же совпадением у своей станции метро</li><li>Метка «Продвигается» видна клиенту</li><li>Только для мастеров с отметкой «Сверено». На процент совпадения не влияет</li></ul>
         ${boost?`<span class="tag ok" style="justify-self:start">Включено</span><button class="btn sm" data-act="plan" data-v="base" style="justify-self:start">Отключить</button>`:`<button class="btn sm" data-act="plan" data-v="boost" style="justify-self:start">Включить</button>`}</div>
     </div>
     <p class="small muted" style="margin-top:12px">Демо: оплата не проводится, опция переключается сразу.</p>`;
   }
   return `<div class="resinfo"><div><h1>Кабинет мастера</h1><span class="muted small">${m.name} · ${m.place}, м. ${m.metro}</span></div><button class="btn sm" data-act="role" data-v="client">Посмотреть профиль глазами клиента</button></div>
   <div class="kpis ${S.mtab==="bookings"?"":"alt"}"><div class="panel kpi"><b class="mono">${bk.length}</b><small>записей на неделю</small></div><div class="panel kpi"><b class="mono">${free}</b><small>свободных окон из ${total}</small></div>
-   <div class="panel kpi"><b class="mono">${income.toLocaleString("ru-RU")} ₽</b><small>ожидаемый доход</small></div><div class="panel kpi"><b class="mono">${rating("anna").toFixed(2)}</b><small>рейтинг · ${S.reviews.anna.length} отзывов</small></div></div>
+   <div class="panel kpi"><b class="mono">${income.toLocaleString("ru-RU")} ₽</b><small>ожидаемый доход</small></div><div class="panel kpi"><b class="mono">${S.reviews.anna.length}</b><small>отзывов после визитов</small></div></div>
   <div class="mtabs">${tabs.map(([k,l])=>`<button class="chip ${S.mtab===k?"on":""}" data-act="mtab" data-v="${k}">${l}</button>`).join("")}</div>${body}
   <p class="demo">Камертон · демо-версия учебного проекта команды «Воздуханство». Данные хранятся только в этом браузере. <button class="btn ghost sm" data-act="reset">Сбросить демо</button></p>`;
 }
@@ -903,6 +1005,13 @@ document.addEventListener("click",e=>{
     case"sday":S.sDay=+v;break;
     case"ftoggle":S.showF=!S.showF;break;
     case"hint-ok":S.hintSeen=true;break;
+    case"tune":{const i=S.tuneStep||0;(S.tuneAns=S.tuneAns||[])[i]=v;S.tuneStep=i+1;if(TUNE[i].k==="cat")S.f.cat=v||"all";window.scrollTo(0,0);break}
+    case"tune-back":S.tuneStep=Math.max(0,(S.tuneStep||0)-1);break;
+    case"tune-skip":S.tuned=true;S.tuneStep=0;break;
+    case"tune-done":S.tuned=true;S.showLow=false;window.scrollTo(0,0);break;
+    case"retune":S.tuned=false;S.tuneStep=0;window.scrollTo(0,0);break;
+    case"showlow":S.showLow=true;break;
+    case"openbook":{S.open=v;S.allRev=false;S.bookOpen=true;scrollBook=true;S.pSvc=0;S.confirming=false;const n=nearest(v);S.pDay=n?n.d:0;S.pSlot=n?n.h:null;break}
     case"allrev":S.allRev=true;break;
     case"booktoggle":S.bookOpen=!S.bookOpen;if(S.bookOpen)scrollBook=true;break;
     case"bookopen":S.bookOpen=true;scrollBook=true;break;
@@ -934,6 +1043,7 @@ document.addEventListener("click",e=>{
   if(!after&&before){try{if(history.state&&history.state.ritm)history.replaceState(null,"")}catch(err){}}
   if(["tab","mtab","role","book","chat-open","cancel-yes","cchat-pick","mchat-pick"].includes(a))window.scrollTo(0,0);
   if(a==="open"||a==="resched"){const dr=document.querySelector(".drawer");if(dr)dr.scrollTop=0}
+  if(a==="tab"&&v==="search"&&!S.tuned)window.scrollTo(0,0);
 });
 document.addEventListener("input",e=>{
   const el=e.target;
@@ -960,7 +1070,7 @@ document.addEventListener("submit",e=>{
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&layer()){let h=null;try{h=history.state}catch(err){}if(h&&h.ritm)history.back();else stepBack()}});
 
 /* правки мастера Анны сохраняются отдельно поверх исходных данных */
-function saveAnna(){const a=M("anna");S.anna={svc:a.svc,place:a.place,addr:a.addr,about:a.about,promo:a.promo};save()}
+function saveAnna(){const a=M("anna");S.anna={svc:a.svc,place:a.place,addr:a.addr,about:a.about,appr:a.appr,promo:a.promo};save()}
 const ANNA0=JSON.parse(JSON.stringify(M("anna")));
 function syncAnna(){const a=M("anna");Object.assign(a,JSON.parse(JSON.stringify(ANNA0)),S.anna||{});a.promo=S.plan==="boost"}
 const _render=render;render=function(){if(S.role==="master"||S.anna)saveAnna();_render()};
