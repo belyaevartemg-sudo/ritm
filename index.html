@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FFFCFA">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237B2D3B'/%3E%3Cg transform='translate(4 4)' fill='none' stroke='%23FBF3EF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5'/%3E%3Cpath d='M12 17.6V22'/%3E%3C/g%3E%3C/svg%3E">
+<meta name="theme-color" content="#FFFDF8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236E1F30'/%3E%3Cg transform='translate(4 4)' fill='none' stroke='%23FBF3EF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2.5V11.5C8 14.6 10 16.4 12 17.6C14 16.4 16 14.6 16 11.5V2.5'/%3E%3Cpath d='M12 17.6V22'/%3E%3C/g%3E%3C/svg%3E">
 <title>Камертон</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Prata&display=swap">
@@ -674,6 +674,75 @@ h3,.dbody section > h3{font-family:var(--f-body);font-weight:600}
 .day.on small{color:#FFFFFF;opacity:.9}
 .ptag.on{font-weight:600}
 .cell.booked,.toast,.msg.me{font-weight:600}
+
+/* ===== 18:47 Артём, проба только на сайте: белый · бордовый · золото ===== */
+:root{--paper:#FFFDF8;--ink:#3A1C22;--muted:#7D6266;--hair:#E9DCC4;--tint:#F7F0E4;--surface:#F7F0E4;
+  --accent:#6E1F30;--accent-ink:#FFF9EE;--accent-tint:#F7F0E4;--ok:#6E1F30;--ok-soft:#F7F0E4;--warn:#8C6A35;--shade:rgba(58,28,34,.45);
+  --gold:#B8955A;--gold-deep:#8C6A35;--gold-light:#E2CC9C;
+  --gold-grad:linear-gradient(100deg,#9E7A43 0%,#D9BE86 28%,#B08A4E 52%,#E6D2A4 74%,#A07C45 100%);
+  --wine-grad:linear-gradient(160deg,#82283B 0%,#6E1F30 45%,#561726 100%);
+  --ava-bg:#F3EADB;--ava-ink:#6E1F30;--arc:#D9C3A0;
+  --btn:#6E1F30;--btn-hover:#5A1827;--btn-ink:#FFF9EE;--btn2:#F7F0E4;--btn2-hover:#EFE4D2;--field:#E2D2B4}
+body{background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .25 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat;color:var(--ink)}
+.top{background:rgba(255,253,248,.94);border-bottom:0;box-shadow:none;position:sticky}
+.top::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold-grad);opacity:.85}
+.wordmark{color:var(--accent)}
+.logo .mark,.reso{stroke:var(--gold)}
+.reso .arc{stroke:var(--gold-light)}
+.eyebrow{color:var(--gold-deep)}
+.intro h1{color:var(--accent)}
+.intro .sub{color:var(--gold-deep)}
+.mission{border-left:2px solid transparent;border-image:linear-gradient(180deg,#D9BE86,#9E7A43) 1}
+.how li{border-top-color:var(--hair)}
+.how li::before{color:var(--gold-deep)}
+.intro{border-bottom-color:var(--hair)}
+/* кнопки: глубокий бордовый с мягким переливом и тонкой золотой кромкой */
+.btn.primary,.day.on,.slot.on,.cell.booked,.ptag.on,.msg.me,.toast{background:var(--wine-grad);color:var(--btn-ink);box-shadow:inset 0 0 0 1px rgba(226,204,156,.35)}
+.btn.primary:hover{background:linear-gradient(160deg,#741F33 0%,#5E1928 55%,#4A1220 100%)}
+.btn.primary{letter-spacing:.12em}
+.btn.sm.primary{letter-spacing:.02em}
+.btn:not(.primary):not(.ghost){background:var(--btn2);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(184,149,90,.28)}
+.btn:not(.primary):not(.ghost):hover{background:var(--btn2-hover)}
+.btn.ghost,.btn.ghost:hover{color:var(--accent)}
+.slot{border-color:var(--field)}
+.slot.on{border-color:transparent}
+.day.on small{color:var(--gold-light)}
+/* отметки: шампань, выбранные — бордовые */
+.ptag{background:var(--tint);color:var(--ink)}
+.ptag.pick:hover{background:var(--btn2-hover)}
+.ptag.on,.ptag.pick.on:hover{color:var(--btn-ink)}
+.ptag.pick.on::before{color:var(--gold-light)}
+/* золото в мелочах */
+.ver{color:var(--gold-deep)}
+.chip.on{color:var(--accent);border-bottom:1px solid transparent;border-image:var(--gold-grad) 1}
+.nav button.on{border-bottom:2px solid transparent;border-image:var(--gold-grad) 1;color:var(--accent)}
+.nav .count,.tabbar .count{color:var(--gold-deep)}
+.tabbar{background:rgba(255,253,248,.96);border-top:1px solid var(--hair)}
+.tabbar button.on{color:var(--accent)}
+.ava{background:var(--ava-bg);color:var(--ava-ink);box-shadow:inset 0 0 0 1px var(--gold-light)}
+.kpi b,.price{color:var(--accent)}
+.date b{color:var(--accent)}
+.search input{border-color:var(--field);background:rgba(255,255,255,.7)}
+.search svg{color:var(--gold-deep)}
+.search input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(226,204,156,.35)}
+.range::after{background:var(--gold-grad)}
+.range input::-webkit-slider-thumb{border-color:var(--gold)}
+.range input::-moz-range-thumb{border-color:var(--gold)}
+.role{background:var(--tint)}
+.role button.on{background:#FFFFFF;color:var(--accent);box-shadow:0 1px 3px rgba(110,31,48,.12),inset 0 0 0 1px rgba(184,149,90,.35)}
+.plan.cur{border-top:2px solid transparent;border-image:var(--gold-grad) 1}
+.hint{background:var(--tint);box-shadow:inset 0 0 0 1px rgba(184,149,90,.25)}
+.hint b{color:var(--accent)}
+.tag::before{background:var(--gold)}
+.tag.acc,.tag.ok{color:var(--accent)}
+.selbox b,.why b{color:var(--accent)}
+.card .pics{box-shadow:0 0 0 1px rgba(184,149,90,.18)}
+.dhead,.drawer,.top{border-color:var(--hair)}
+.drawer{background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .25 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") repeat}
+.dhead,.bookbar{background:rgba(255,253,248,.96)}
+.toast{border-left:0}
+.cell.free{background:var(--tint);color:var(--ink)}
+.msg{background:var(--tint)}
 </style>
 </head>
 <body>
@@ -699,7 +768,7 @@ const PLACES=["Частный кабинет","Салон","Бьюти-ково�
 const HOURS=[10,11,12,13,14,15,16,17,18,19,20];
 const WD=["Вс","Пн","Вт","Ср","Чт","Пт","Сб"];
 const MON=["янв","фев","мар","апр","мая","июн","июл","авг","сен","окт","ноя","дек"];
-const ART={nails:["#F3E7E4","#D6B9B3","#FFFCFA"],hair:["#F1E4DF","#CDAEA6","#FFFCFA"],brows:["#EFE2DF","#C9A9A3","#FFFCFA"],makeup:["#F4E8E5","#D3B3AD","#FFFCFA"],cosm:["#F6EEEC","#D8C0BB","#FFFCFA"],massage:["#F0E3E0","#CBACA6","#FFFCFA"]};
+const ART={nails:["#F6EEE6","#D8B9AE","#FFFDF8"],hair:["#F4EBDD","#CDB28C","#FFFDF8"],brows:["#F3EAE4","#C9A9A0","#FFFDF8"],makeup:["#F7EFE7","#D6B4A9","#FFFDF8"],cosm:["#F8F2EA","#D8C3A6","#FFFDF8"],massage:["#F2E9E0","#CBB09B","#FFFDF8"]};
 
 const MASTERS=[
  {id:"anna",name:"Анна Королёва",cat:"nails",spec:"Маникюр, педикюр",exp:7,place:"Частный кабинет",metro:"Таганская",addr:"ул. Таганская, 24, кабинет 3",salon:null,promo:true,hue:"#B4426A",
