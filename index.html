@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FFFFFF">
-<title>Ритм</title>
+<title>Камертон</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -455,7 +455,7 @@ h3,.dbody section > h3{text-transform:none;letter-spacing:0;font-size:1rem;font-
 <body>
 
 <header class="top"><div class="wrap">
-  <div class="logo"><i></i>Ритм <small>Москва · демо</small></div>
+  <div class="logo"><i></i>Камертон <small>Москва · демо</small></div>
   <nav class="nav" id="nav"></nav>
   <button class="themebtn" id="themebtn" data-act="theme" aria-label="Переключить тему"></button>
   <div class="role" role="group" aria-label="Режим">
@@ -738,7 +738,7 @@ function viewProfile(){
     <section><h3 style="margin-bottom:10px">Где принимает</h3>
       <div class="map"><span>м. ${m.metro} · ${m.addr}</span></div>
       <p class="small muted" style="margin:6px 0 0">${m.place}. Фото места проверены при модерации.</p></section>
-    <section><h3 style="margin-bottom:4px">Отзывы</h3><p class="small muted" style="margin:0 0 8px">Только после визитов, записанных через Ритм.</p>
+    <section><h3 style="margin-bottom:4px">Отзывы</h3><p class="small muted" style="margin:0 0 8px">Только после визитов, записанных через Камертон.</p>
       ${revs.slice(0,S.allRev?99:3).map(x=>`<div class="review"><div class="rhead"><span><b>${esc(x.author)}</b></span><span class="muted">${x.ago===0?"сегодня":x.ago+" дн. назад"}</span></div>
       <div><span class="star">${"★".repeat(x.stars)}</span><span style="color:var(--line)">${"★".repeat(5-x.stars)}</span> <span class="small muted">${esc(x.svc)}</span></div><p>${esc(x.text)}</p></div>`).join("")}${revs.length>3&&!S.allRev?`<button class="btn sm" data-act="allrev">Все отзывы · ${revs.length}</button>`:""}</section>
    </div>
@@ -770,7 +770,7 @@ function viewBookings(){
     ${rem?`<div class="panel note"><span class="tag warn" style="justify-self:start">Напоминание</span><b>${rem.day===0?"Сегодня":rem.day===1?"Завтра":fmtDay(rem.day)} в ${rem.hour}:00 — ${M(rem.mid).svc[rem.svc][0]}</b>
       <span class="small muted">${M(rem.mid).name} · ${M(rem.mid).addr}</span>
       <div style="display:flex;gap:6px;flex-wrap:wrap">${rem.came?`<span class="tag ok">Вы придёте</span>`:`<button class="btn sm primary" data-act="come" data-v="${rem.id}">Приду</button>`}<button class="btn sm" data-act="resched" data-v="${rem.id}">Перенести</button><button class="btn ghost sm" data-act="remind">Как выглядит push</button></div></div>`:""}
-    <div class="panel note"><b>Ваш мастер не потеряется</b><span class="small muted">Если мастер сменит салон или уйдёт в частную практику, его профиль, отзывы и ваша история записей останутся в Ритме.</span></div>
+    <div class="panel note"><b>Ваш мастер не потеряется</b><span class="small muted">Если мастер сменит салон или уйдёт в частную практику, его профиль, отзывы и ваша история записей останутся в Камертоне.</span></div>
   </aside></div>`;
 }
 function reviewForm(b){const m=M(b.mid);
@@ -849,9 +849,9 @@ function viewMaster(){
     body=chatUI(thr,cur,msgs,"m",`<b>${cur==="me"?"Демо-клиент (вы)":esc(cur)}</b>`,"mchat");
   }else{
     const boost=S.plan==="boost";
-    body=`<div class="panel note" style="margin-bottom:14px"><b>Одна подписка вместо платы за заявки</b><span class="small muted">Мастер платит фиксированную сумму в месяц за все функции. Ритм не берёт деньги за отклики и комиссию с записи. Для клиентов сервис бесплатный.</span></div>
+    body=`<div class="panel note" style="margin-bottom:14px"><b>Одна подписка вместо платы за заявки</b><span class="small muted">Мастер платит фиксированную сумму в месяц за все функции. Камертон не берёт деньги за отклики и комиссию с записи. Для клиентов сервис бесплатный.</span></div>
     <div class="plans">
-      <div class="panel plan cur"><h3>Подписка Ритм</h3><div class="price">0 ₽<span class="small muted" style="font-family:var(--f-body)"> первые 30 дней</span></div>
+      <div class="panel plan cur"><h3>Подписка Камертон</h3><div class="price">0 ₽<span class="small muted" style="font-family:var(--f-body)"> первые 30 дней</span></div>
         <ul><li>Профиль, портфолио и расписание</li><li>Запись в свободное окно и чат</li><li>Напоминание клиенту за сутки с кнопками «Приду» и «Перенести»</li><li>Клиентская база остаётся у вас</li></ul>
         <span class="small muted">Дальше фиксированная цена в месяц. Её уточняем с мастерами на пилоте.</span>
         <span class="tag ok" style="justify-self:start">Ваш тариф · пробный период</span></div>
@@ -865,7 +865,7 @@ function viewMaster(){
   <div class="kpis ${S.mtab==="bookings"?"":"alt"}"><div class="panel kpi"><b class="mono">${bk.length}</b><small>записей на неделю</small></div><div class="panel kpi"><b class="mono">${free}</b><small>свободных окон из ${total}</small></div>
    <div class="panel kpi"><b class="mono">${income.toLocaleString("ru-RU")} ₽</b><small>ожидаемый доход</small></div><div class="panel kpi"><b class="mono">${rating("anna").toFixed(2)}</b><small>рейтинг · ${S.reviews.anna.length} отзывов</small></div></div>
   <div class="mtabs">${tabs.map(([k,l])=>`<button class="chip ${S.mtab===k?"on":""}" data-act="mtab" data-v="${k}">${l}</button>`).join("")}</div>${body}
-  <p class="demo">Ритм · демо-версия учебного проекта команды «Воздуханство». Данные хранятся только в этом браузере. <button class="btn ghost sm" data-act="reset">Сбросить демо</button></p>`;
+  <p class="demo">Камертон · демо-версия учебного проекта команды «Воздуханство». Данные хранятся только в этом браузере. <button class="btn ghost sm" data-act="reset">Сбросить демо</button></p>`;
 }
 
 /* ---------- события ---------- */
@@ -913,7 +913,7 @@ document.addEventListener("click",e=>{
     case"review":S.reviewFor=+v;S.rStars=5;break;
     case"review-x":S.reviewFor=null;break;
     case"stars":S.rStars=+v;document.querySelectorAll(".stars button").forEach((b,i)=>b.classList.toggle("on",i<S.rStars));return;
-    case"remind":{const b=myUpcoming().sort((a,b)=>a.day*100+a.hour-(b.day*100+b.hour))[0];if(b)toast(`Ритм · ${b.day===0?"Сегодня":b.day===1?"Завтра":fmtDay(b.day)} в ${b.hour}:00 — ${M(b.mid).svc[b.svc][0]} у ${M(b.mid).name}. Приду / Перенести`);return}
+    case"remind":{const b=myUpcoming().sort((a,b)=>a.day*100+a.hour-(b.day*100+b.hour))[0];if(b)toast(`Камертон · ${b.day===0?"Сегодня":b.day===1?"Завтра":fmtDay(b.day)} в ${b.hour}:00 — ${M(b.mid).svc[b.svc][0]} у ${M(b.mid).name}. Приду / Перенести`);return}
     case"chat-open":S.role="client";S.tab="chats";S.chatWith=v;S.chatView=true;S.open=null;if(!S.chats[v])S.chats[v]=[];break;
     case"cchat-pick":S.chatWith=v;S.chatView=true;break;
     case"chat-back":S.chatView=false;break;
