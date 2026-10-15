@@ -1357,7 +1357,7 @@ function viewMaster(){
   <div class="kpis ${S.mtab==="bookings"?"":"alt"}"><div class="panel kpi"><b class="mono">${bk.length}</b><small>записей на неделю</small></div><div class="panel kpi"><b class="mono">${free}</b><small>свободных окон из ${total}</small></div>
    <div class="panel kpi"><b class="mono">${income.toLocaleString("ru-RU")} ₽</b><small>ожидаемый доход</small></div><div class="panel kpi"><b class="mono">${S.reviews.anna.length}</b><small>отзывов после визитов</small></div></div>
   <div class="mtabs">${tabs.map(([k,l])=>`<button class="chip ${S.mtab===k?"on":""}" data-act="mtab" data-v="${k}">${l}</button>`).join("")}</div>${body}
-  <p class="demo">Камертон · демо-версия учебного проекта команды «Воздуханство». Данные хранятся только в этом браузере. <button class="btn ghost sm" data-act="reset">Сбросить демо</button></p>`;
+  <p class="demo">Камертон · демо-версия учебного проекта. Данные хранятся только в этом браузере. <button class="btn ghost sm" data-act="reset">Сбросить демо</button></p>`;
 }
 
 /* ---------- события ---------- */
